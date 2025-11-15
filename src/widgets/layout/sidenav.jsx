@@ -8,10 +8,12 @@ import {
   Typography,
 } from "@material-tailwind/react";
 import { useMaterialTailwindController, setOpenSidenav } from "@/context";
+import { useTranslation } from "react-i18next";
 
 export function Sidenav({ brandImg, brandName, routes }) {
   const [controller, dispatch] = useMaterialTailwindController();
   const { sidenavColor, sidenavType, openSidenav } = controller;
+  const { t } = useTranslation();
   const sidenavTypes = {
     dark: "bg-gradient-to-br from-gray-800 to-gray-900",
     white: "bg-white shadow-sm",
@@ -30,20 +32,23 @@ export function Sidenav({ brandImg, brandName, routes }) {
         <Link to="/" className="py-6 px-8 text-center">
           <Typography
             variant="h6"
-            color={sidenavType === "dark" ? "white" : "blue-gray"}
+            color={sidenavType === "dark" ? "white" : "black"}
           >
             {brandName}
           </Typography>
         </Link>
         <IconButton
           variant="text"
-          color="white"
+          color={sidenavType === "dark" ? "white" : "blue-gray"}
           size="sm"
           ripple={false}
-          className="absolute right-0 top-0 grid rounded-br-none rounded-tl-none xl:hidden"
+          className="absolute right-0 top-0 grid rounded-br-none rounded-tl-none xl:hidden p-5"
           onClick={() => setOpenSidenav(dispatch, false)}
         >
-          <XMarkIcon strokeWidth={2.5} className="h-5 w-5 text-white" />
+          <XMarkIcon
+            strokeWidth={2.5}
+            className={` h-5 w-5 ${sidenavType === "dark" ? "text-white" : "text-blue-gray-700"}`}
+          />
         </IconButton>
       </div>
       <div className="m-4">
@@ -53,7 +58,7 @@ export function Sidenav({ brandImg, brandName, routes }) {
               <li className="mx-3.5 mt-4 mb-2">
                 <Typography
                   variant="small"
-                  color={sidenavType === "dark" ? "white" : "blue-gray"}
+                  color={sidenavType === "dark" ? "white" : "black"}
                   className="font-black uppercase opacity-75"
                 >
                   {title}
@@ -68,20 +73,26 @@ export function Sidenav({ brandImg, brandName, routes }) {
                       variant={isActive ? "gradient" : "text"}
                       color={
                         isActive
-                          ? sidenavColor
+                          ? sidenavColor === "dark" ? "black" : sidenavColor
                           : sidenavType === "dark"
                           ? "white"
-                          : "blue-gray"
+                          : "black"
                       }
                       className="flex items-center gap-4 px-4 capitalize"
                       fullWidth
+                      onClick={() => {
+                        // mobil görünüşdə route dəyişəndə sidenav bağlansın
+                        if (window.innerWidth < 1280) {
+                          setOpenSidenav(dispatch, false);
+                        }
+                      }}
                     >
                       {icon}
                       <Typography
                         color="inherit"
-                        className="font-medium capitalize"
+                        className="font-medium"
                       >
-                        {name}
+                        {name.startsWith("sidebar.") ? t(name) : name}
                       </Typography>
                     </Button>
                   )}

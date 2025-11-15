@@ -13,6 +13,7 @@ import {
   Tooltip,
   Progress,
 } from "@material-tailwind/react";
+import { useTranslation } from "react-i18next";
 import {
   EllipsisVerticalIcon,
   ArrowUpIcon,
@@ -28,10 +29,12 @@ import {
 import { CheckCircleIcon, ClockIcon } from "@heroicons/react/24/solid";
 
 export function Home() {
+  const { t } = useTranslation();
+
   return (
     <div className="mt-12">
       <div className="w-full bg-black my-4 p-5 rounded-lg shadow-lg mb-6">
-        <h3 className="text-white font-bold">Title</h3>
+        <h3 className="text-white font-bold">{t("dashboard.homeTitle1")}</h3>
       </div>
       <div className="mb-12 grid gap-y-10 gap-x-6 md:grid-cols-2 xl:grid-cols-4">
         {statisticsCardsData.map(({ icon, title, footer, ...rest }) => (
@@ -52,7 +55,7 @@ export function Home() {
         ))}
       </div>
       <div className="w-full bg-black my-4 p-5 rounded-lg shadow-lg mb-6">
-        <h3 className="text-white font-bold">Title</h3>
+        <h3 className="text-white font-bold">{t("dashboard.homeTitle2")}</h3>
       </div>
       <div className="mb-6 grid grid-cols-1 gap-y-12 gap-x-6 md:grid-cols-2 xl:grid-cols-3">
         {statisticsChartsData.map((props) => (
@@ -72,7 +75,7 @@ export function Home() {
         ))}
       </div>
       <div className="w-full bg-black my-4 p-5 rounded-lg shadow-lg mb-6">
-        <h3 className="text-white font-bold">Title</h3>
+        <h3 className="text-white font-bold">{t("dashboard.homeTitle3")}</h3>
       </div>
       <div className="mb-4 grid grid-cols-1 gap-6 xl:grid-cols-3">
         <Card className="overflow-hidden xl:col-span-2 border border-red-600 shadow-sm">

@@ -25,12 +25,26 @@ import {
   setOpenConfigurator,
   setOpenSidenav,
 } from "@/context";
+import { useAuth } from "@/auth-context";
+import { useTranslation } from "react-i18next";
+
+const languages = [
+  { code: "az", label: "AZ", flag: "🇦🇿" },
+  { code: "en", label: "EN", flag: "🇬🇧" },
+  { code: "ru", label: "RU", flag: "🇷🇺" },
+];
 
 export function DashboardNavbar() {
   const [controller, dispatch] = useMaterialTailwindController();
   const { fixedNavbar, openSidenav } = controller;
   const { pathname } = useLocation();
   const [layout, page] = pathname.split("/").filter((el) => el !== "");
+  const { user, logout } = useAuth();
+  const { t, i18n } = useTranslation();
+
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  };
 
   return (
     <Navbar
@@ -71,10 +85,10 @@ export function DashboardNavbar() {
             {page}
           </Typography>
         </div>
-        <div className="flex items-center">
-          <div className="mr-auto md:mr-4 md:w-56">
-            <Input label="Search" />
-          </div>
+        <div className="flex items-center justify-end">
+          {/* <div className="mr-auto md:mr-4 md:w-56">
+            <Input label={t("header.search")} />
+          </div> */}
           <IconButton
             variant="text"
             color="blue-gray"
@@ -83,23 +97,72 @@ export function DashboardNavbar() {
           >
             <Bars3Icon strokeWidth={3} className="h-6 w-6 text-blue-gray-500" />
           </IconButton>
-          <Link to="/auth/sign-in">
-            <Button
-              variant="text"
-              color="blue-gray"
-              className="hidden items-center gap-1 px-4 xl:flex normal-case"
-            >
-              <UserCircleIcon className="h-5 w-5 text-blue-gray-500" />
-              Sign In
-            </Button>
-            <IconButton
-              variant="text"
-              color="blue-gray"
-              className="grid xl:hidden"
-            >
-              <UserCircleIcon className="h-5 w-5 text-blue-gray-500" />
-            </IconButton>
-          </Link>
+
+          {/* Language selector */}
+          <Menu placement="bottom-end">
+            <MenuHandler>
+              <Button variant="text" className="flex items-center gap-1 px-2 normal-case">
+                {languages.map((lng) => (
+                  lng.code === i18n.language && (
+                    <span key={lng.code} className="flex items-center gap-1">
+                      <span>{lng.flag}</span>
+                      <span className="hidden sm:inline-block text-xs font-medium">{lng.label}</span>
+                    </span>
+                  )
+                ))}
+              </Button>
+            </MenuHandler>
+            <MenuList className="min-w-[120px]">
+              {languages.map((lng) => (
+                <MenuItem key={lng.code} onClick={() => changeLanguage(lng.code)}>
+                  <span className="mr-2">{lng.flag}</span>
+                  <span>{lng.label}</span>
+                </MenuItem>
+              ))}
+            </MenuList>
+          </Menu>
+
+          {/* User info / auth */}
+          {user ? (
+            <Menu placement="bottom-end">
+              <MenuHandler>
+                <Button
+                  variant="text"
+                  color="blue-gray"
+                  className="hidden items-center gap-2 px-4 xl:flex normal-case"
+                >
+                  <Avatar
+                    src="https://ui-avatars.com/api/?name="
+                    alt={user.fullName}
+                    size="sm"
+                  />
+                  <span>{user.fullName}</span>
+                </Button>
+              </MenuHandler>
+              <MenuList>
+                <MenuItem onClick={logout}>{t("common.logout")}</MenuItem>
+              </MenuList>
+            </Menu>
+          ) : (
+            <Link to="/auth/sign-in">
+              <Button
+                variant="text"
+                color="blue-gray"
+                className="hidden items-center gap-1 px-4 xl:flex normal-case"
+              >
+                <UserCircleIcon className="h-5 w-5 text-blue-gray-500" />
+                {t("common.login")}
+              </Button>
+              <IconButton
+                variant="text"
+                color="blue-gray"
+                className="grid xl:hidden"
+              >
+                <UserCircleIcon className="h-5 w-5 text-blue-gray-500" />
+              </IconButton>
+            </Link>
+          )}
+
           <Menu>
             <MenuHandler>
               <IconButton variant="text" color="blue-gray">

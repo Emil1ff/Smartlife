@@ -7,8 +7,10 @@ import {
   CardBody,
 } from "@material-tailwind/react";
 import { InformationCircleIcon } from "@heroicons/react/24/outline";
+import { useTranslation } from "react-i18next";
 
 export function Notifications() {
+  const { t } = useTranslation();
   const [showAlerts, setShowAlerts] = React.useState({
     blue: true,
     green: true,
@@ -33,7 +35,7 @@ export function Notifications() {
           className="m-0 p-4"
         >
           <Typography variant="h5" color="blue-gray">
-            Alerts
+            {t("notifications.alertsTitle")}
           </Typography>
         </CardHeader>
         <CardBody className="flex flex-col gap-4 p-4">
@@ -58,7 +60,7 @@ export function Notifications() {
           className="m-0 p-4"
         >
           <Typography variant="h5" color="blue-gray">
-            Alerts with Icon
+            {t("notifications.alertsWithIconTitle")}
           </Typography>
         </CardHeader>
         <CardBody className="flex flex-col gap-4 p-4">
