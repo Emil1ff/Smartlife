@@ -66,14 +66,14 @@ const Profile = () => {
   return (
     <div className="">
       {/* Section title bar to match Home design */}
-      <div className="w-full bg-black dark:bg-gray-900 my-4 p-4 rounded-lg shadow-lg mb-6">
+      <div className="w-full bg-black dark:bg-black my-4 p-4 rounded-lg shadow-lg mb-6 border border-red-600 dark:border-red-600">
         <h3 className="text-white font-bold">{t("profile.pageTitle")}</h3>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Left Panel - User Information */}
-        <Card className="border border-red-500 shadow-sm dark:bg-gray-800 dark:border-gray-700">
-          <CardBody className="p-6 dark:bg-gray-800">
+        <Card className="border border-red-600 dark:border-red-600 shadow-sm dark:bg-black">
+          <CardBody className="p-6 dark:bg-black">
             <div className="flex flex-col items-center">
               <div className="relative mb-4">
                 <div className="w-24 h-24 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-purple-600 dark:text-purple-300 text-2xl font-bold">
@@ -98,7 +98,7 @@ const Profile = () => {
                     {formData.phone}
                   </Typography>
                 </div>
-                <div className="mt-4 pt-4 border-t border-blue-gray-100 dark:border-gray-700">
+                <div className="mt-4 pt-4 border-t border-blue-gray-100 dark:border-gray-800">
                   <Chip
                     value="West"
                     color="green"
@@ -113,16 +113,16 @@ const Profile = () => {
 
         {/* Right Panel - Personal Information Editing */}
         <div className="lg:col-span-2">
-          <Card className="border border-red-500 shadow-sm dark:bg-gray-800 dark:border-gray-700">
-            <CardBody className="p-6 dark:bg-gray-800">
+          <Card className="border border-red-600 dark:border-red-600 shadow-sm dark:bg-black">
+            <CardBody className="p-6 dark:bg-black">
               <Tabs value={activeTab} className="overflow-visible">
-                <TabsHeader className="rounded-none border-b border-blue-gray-100 dark:border-gray-700 bg-transparent p-0">
+                <TabsHeader className="rounded-none border-b border-red-600 dark:border-red-600 bg-transparent p-0">
                   <Tab
                     value="personal"
                     onClick={() => setActiveTab("personal")}
                     className={
                       activeTab === "personal"
-                        ? "border-b-2 border-blue-500 text-blue-500 dark:text-blue-400"
+                        ? "border-b-2 border-red-600 text-red-600 dark:text-red-400"
                         : "dark:text-gray-400"
                     }
                   >
@@ -133,7 +133,7 @@ const Profile = () => {
                     onClick={() => setActiveTab("password")}
                     className={
                       activeTab === "password"
-                        ? "border-b-2 border-blue-500 text-blue-500 dark:text-blue-400"
+                        ? "border-b-2 border-red-600 text-red-600 dark:text-red-400"
                         : "dark:text-gray-400"
                     }
                   >

@@ -145,7 +145,7 @@ const PropertyServiceFeePage = () => {
   return (
     <div>
       {/* Section title bar to match Home design */}
-      <div className="w-full bg-black dark:bg-gray-900 my-4 p-4 rounded-lg shadow-lg mb-6">
+      <div className="w-full bg-black dark:bg-black my-4 p-4 rounded-lg shadow-lg mb-6 border border-red-600 dark:border-red-600">
         <div className="flex items-center gap-4">
           <Button
             variant="text"
@@ -165,18 +165,18 @@ const PropertyServiceFeePage = () => {
         {/* Sol tərəf - Mənzil məlumatları və form */}
         <div className="lg:col-span-2 space-y-6">
           {/* Mənzil məlumatları */}
-          <Card className="border border-red-500 shadow-sm dark:bg-gray-800 dark:border-gray-700">
+          <Card className="border border-red-600 dark:border-red-600 shadow-sm dark:bg-black">
             <CardHeader
               floated={false}
               shadow={false}
               color="transparent"
-              className="m-0 p-6 border-b border-blue-gray-100 dark:border-gray-700 dark:bg-gray-800"
+              className="m-0 p-6 border-b border-red-600 dark:border-red-600 dark:bg-black"
             >
               <Typography variant="h6" color="blue-gray" className="mb-1 dark:text-white">
                 {t("serviceFee.apartmentInfo")}
               </Typography>
             </CardHeader>
-            <CardBody className="px-6 py-6 dark:bg-gray-800">
+            <CardBody className="px-6 py-6 dark:bg-black">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <Typography variant="small" color="blue-gray" className="mb-1 font-medium dark:text-gray-400">
@@ -239,18 +239,18 @@ const PropertyServiceFeePage = () => {
           </Card>
 
           {/* Servis haqqı form */}
-          <Card className="border border-red-500 shadow-sm dark:bg-gray-800 dark:border-gray-700">
+          <Card className="border border-red-600 dark:border-red-600 shadow-sm dark:bg-black">
             <CardHeader
               floated={false}
               shadow={false}
               color="transparent"
-              className="m-0 p-6 border-b border-blue-gray-100 dark:border-gray-700 dark:bg-gray-800"
+              className="m-0 p-6 border-b border-red-600 dark:border-red-600 dark:bg-black"
             >
               <Typography variant="h6" color="blue-gray" className="mb-1 dark:text-white">
                 {t("serviceFee.serviceFeeTitle")}
               </Typography>
             </CardHeader>
-            <CardBody className="px-6 py-6 dark:bg-gray-800">
+            <CardBody className="px-6 py-6 dark:bg-black">
               <div className="max-w-md">
                 <div className="mb-6">
                   <Typography variant="small" color="blue-gray" className="mb-2 font-medium dark:text-gray-400">
@@ -296,18 +296,18 @@ const PropertyServiceFeePage = () => {
 
         {/* Sağ tərəf - Tarixçə */}
         <div className="lg:col-span-1">
-          <Card className="border border-red-500 shadow-sm dark:bg-gray-800 dark:border-gray-700">
+          <Card className="border border-red-600 dark:border-red-600 shadow-sm dark:bg-black">
             <CardHeader
               floated={false}
               shadow={false}
               color="transparent"
-              className="m-0 p-6 border-b border-blue-gray-100 dark:border-gray-700 dark:bg-gray-800"
+              className="m-0 p-6 border-b border-red-600 dark:border-red-600 dark:bg-black"
             >
               <Typography variant="h6" color="blue-gray" className="mb-1 dark:text-white">
                 {t("serviceFee.changeHistory")}
               </Typography>
             </CardHeader>
-            <CardBody className="px-6 py-6 dark:bg-gray-800">
+            <CardBody className="px-6 py-6 dark:bg-black">
               {feeHistory.length === 0 ? (
                 <Typography variant="small" color="blue-gray" className="text-center py-4 dark:text-gray-400">
                   {t("serviceFee.noHistory")}
@@ -318,7 +318,7 @@ const PropertyServiceFeePage = () => {
                     <div
                       key={item.id}
                       className={`pb-4 ${
-                        index !== feeHistory.length - 1 ? "border-b border-blue-gray-100 dark:border-gray-700" : ""
+                        index !== feeHistory.length - 1 ? "border-b border-red-600 dark:border-red-600" : ""
                       }`}
                     >
                       <div className="flex items-center justify-between mb-2">

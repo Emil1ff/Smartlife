@@ -22,11 +22,11 @@ export function StatisticsChart({
   const { t } = useTranslation();
 
   return (
-    <Card className="border border-red-600 shadow-sm dark:bg-gray-800 dark:border-gray-700">
+    <Card className="border border-red-600 dark:border-red-600 shadow-sm dark:bg-black">
       <CardHeader variant="gradient" color={color} floated={false} shadow={false}>
         <Chart {...chart} />
       </CardHeader>
-      <CardBody className="px-6 pt-0 dark:bg-gray-800">
+      <CardBody className="px-6 pt-0 dark:bg-black">
         <Typography variant="h6" color="blue-gray" className="dark:text-white">
           {titleKey ? t(titleKey) : title}
         </Typography>
@@ -35,7 +35,7 @@ export function StatisticsChart({
         </Typography>
       </CardBody>
       {(footer || footerKey) && (
-        <CardFooter className="border-t border-blue-gray-50 dark:border-gray-700 px-6 py-5 dark:bg-gray-800">
+        <CardFooter className="border-t border-blue-gray-50 dark:border-gray-800 px-6 py-5 dark:bg-black">
           {footerKey ? t(footerKey) : footer}
         </CardFooter>
       )}

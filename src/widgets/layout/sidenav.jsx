@@ -44,8 +44,8 @@ export function Sidenav({ brandImg, brandName, routes }) {
   }, [location.pathname, routes]);
 
   const sidenavTypes = {
-    dark: "bg-gradient-to-br from-gray-800 to-gray-900 dark:from-blue-900 dark:to-gray-900",
-    white: "bg-white shadow-sm dark:bg-gray-800 dark:border-gray-700",
+    dark: "bg-gradient-to-br from-gray-800 to-gray-900 dark:from-black dark:to-black",
+    white: "bg-white shadow-sm dark:bg-black dark:border-gray-800",
     transparent: "bg-transparent",
   };
 
@@ -53,7 +53,7 @@ export function Sidenav({ brandImg, brandName, routes }) {
     <aside
       className={`${sidenavTypes[sidenavType]} ${
         openSidenav ? "translate-x-0" : "-translate-x-80"
-      } fixed inset-0 z-50 my-4 ml-4 h-[calc(100vh-32px)] w-72 rounded-xl transition-transform duration-300 xl:translate-x-0 border border-red-600 shadow-sm flex flex-col overflow-hidden`}
+      } fixed inset-0 z-50 my-4 ml-4 h-[calc(100vh-32px)] w-72 rounded-xl transition-transform duration-300 xl:translate-x-0 border border-red-600 dark:border-red-600 shadow-sm flex flex-col overflow-hidden`}
     >
       {/* Fixed Header */}
       <div className="relative flex-shrink-0">
@@ -120,10 +120,10 @@ export function Sidenav({ brandImg, brandName, routes }) {
                           ? "white"
                           : "gray"
                       }
-                      className={`flex items-center justify-between gap-2 px-4 capitalize transition-colors ${
+                        className={`flex items-center justify-between gap-2 px-4 capitalize transition-colors ${
                         isOpen 
-                          ? "dark:bg-gray-700 dark:text-white bg-gray-100" 
-                          : "dark:text-white dark:hover:bg-gray-700/50 dark:bg-transparent hover:bg-gray-50"
+                          ? "dark:bg-gray-800 dark:text-white bg-gray-100" 
+                          : "dark:text-white dark:hover:bg-gray-800/50 dark:bg-transparent hover:bg-gray-50"
                       }`}
                       fullWidth
                       onClick={(e) => {
@@ -189,8 +189,8 @@ export function Sidenav({ brandImg, brandName, routes }) {
                                   }
                                   className={`flex items-center justify-start gap-3 px-3 py-2 text-sm normal-case transition-colors text-left ${
                                     isActive 
-                                      ? "dark:bg-gray-700 dark:text-white bg-gray-100" 
-                                      : "dark:text-white dark:hover:bg-gray-700/50 dark:bg-transparent hover:bg-gray-50"
+                                      ? "dark:bg-gray-800 dark:text-white bg-gray-100" 
+                                      : "dark:text-white dark:hover:bg-gray-800/50 dark:bg-transparent hover:bg-gray-50"
                                   }`}
                                   fullWidth
                                   onClick={(e) => {
@@ -243,8 +243,8 @@ export function Sidenav({ brandImg, brandName, routes }) {
                         }
                         className={`flex items-center gap-4 px-4 capitalize transition-colors ${
                           isActive 
-                            ? "dark:bg-gray-700 dark:text-white bg-gray-100" 
-                            : "dark:text-white dark:hover:bg-gray-700/50 dark:bg-transparent hover:bg-gray-50"
+                            ? "dark:bg-gray-800 dark:text-white bg-gray-100" 
+                            : "dark:text-white dark:hover:bg-gray-800/50 dark:bg-transparent hover:bg-gray-50"
                         }`}
                         fullWidth
                         onClick={(e) => {

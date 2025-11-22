@@ -104,14 +104,14 @@ const ResidentsPage = () => {
   return (
     <div className=" ">
       {/* Section title bar to match Home design */}
-      <div className="w-full bg-black dark:bg-gray-900 my-4 p-4 rounded-lg shadow-lg mb-6">
+      <div className="w-full bg-black dark:bg-black my-4 p-4 rounded-lg shadow-lg mb-6 border border-red-600 dark:border-red-600">
         <h3 className="text-white font-bold">{t("residents.pageTitle")}</h3>
       </div>
 
       {/* Filter modal */}
-      <Dialog open={filterOpen} handler={setFilterOpen} size="sm" className="dark:bg-gray-800">
-        <DialogHeader className="dark:bg-gray-800 dark:text-white">{t("residents.filter.title")}</DialogHeader>
-        <DialogBody divider className="space-y-4 dark:bg-gray-800 dark:border-gray-700">
+      <Dialog open={filterOpen} handler={setFilterOpen} size="sm" className="dark:bg-black">
+        <DialogHeader className="dark:bg-black dark:text-white">{t("residents.filter.title")}</DialogHeader>
+        <DialogBody divider className="space-y-4 dark:bg-black dark:border-gray-800">
           <div>
             <Typography variant="small" color="blue-gray" className="mb-1 dark:text-gray-300">
               {t("residents.filter.fullName")}
@@ -139,7 +139,7 @@ const ResidentsPage = () => {
             </Select>
           </div>
         </DialogBody>
-        <DialogFooter className="flex justify-between gap-2 dark:bg-gray-800 dark:border-gray-700">
+        <DialogFooter className="flex justify-between gap-2 dark:bg-black dark:border-gray-800">
           <Button variant="text" color="blue-gray" onClick={handleFilterClear} className="dark:text-gray-300 dark:hover:bg-gray-700">
             {t("residents.filter.clear")}
           </Button>
@@ -155,9 +155,9 @@ const ResidentsPage = () => {
       </Dialog>
 
       {/* Create resident modal */}
-      <Dialog open={createOpen} handler={setCreateOpen} size="sm" className="dark:bg-gray-800">
-        <DialogHeader className="dark:bg-gray-800 dark:text-white">{t("residents.create.title")}</DialogHeader>
-        <DialogBody divider className="space-y-4 dark:bg-gray-800 dark:border-gray-700">
+      <Dialog open={createOpen} handler={setCreateOpen} size="sm" className="dark:bg-black">
+        <DialogHeader className="dark:bg-black dark:text-white">{t("residents.create.title")}</DialogHeader>
+        <DialogBody divider className="space-y-4 dark:bg-black dark:border-gray-800">
           <div>
             <Typography variant="small" color="blue-gray" className="mb-1 dark:text-gray-300">
               {t("residents.create.fullName")}
@@ -223,7 +223,7 @@ const ResidentsPage = () => {
             </Select>
           </div>
         </DialogBody>
-        <DialogFooter className="flex justify-end gap-2 dark:bg-gray-800 dark:border-gray-700">
+        <DialogFooter className="flex justify-end gap-2 dark:bg-black dark:border-gray-800">
           <Button variant="outlined" color="blue-gray" onClick={() => setCreateOpen(false)} className="dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-700">
             {t("residents.create.cancel")}
           </Button>
@@ -234,9 +234,9 @@ const ResidentsPage = () => {
       </Dialog>
 
       {/* Edit resident modal */}
-      <Dialog open={editOpen} handler={setEditOpen} size="sm" className="dark:bg-gray-800">
-        <DialogHeader className="dark:bg-gray-800 dark:text-white">{t("residents.edit.title")}</DialogHeader>
-        <DialogBody divider className="space-y-4 dark:bg-gray-800 dark:border-gray-700">
+      <Dialog open={editOpen} handler={setEditOpen} size="sm" className="dark:bg-black">
+        <DialogHeader className="dark:bg-black dark:text-white">{t("residents.edit.title")}</DialogHeader>
+        <DialogBody divider className="space-y-4 dark:bg-black dark:border-gray-800">
           <div>
             <Typography variant="small" color="blue-gray" className="mb-1 dark:text-gray-300">
               {t("residents.edit.fullName")}
@@ -302,7 +302,7 @@ const ResidentsPage = () => {
             </Select>
           </div>
         </DialogBody>
-        <DialogFooter className="flex justify-end gap-2 dark:bg-gray-800 dark:border-gray-700">
+        <DialogFooter className="flex justify-end gap-2 dark:bg-black dark:border-gray-800">
           <Button variant="outlined" color="blue-gray" onClick={() => setEditOpen(false)} className="dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-700">
             {t("residents.edit.cancel")}
           </Button>
@@ -312,12 +312,12 @@ const ResidentsPage = () => {
         </DialogFooter>
       </Dialog>
 
-      <Card className="border border-red-500 shadow-sm dark:bg-gray-800 dark:border-gray-700">
+      <Card className="border border-red-600 dark:border-red-600 shadow-sm dark:bg-black">
         <CardHeader
           floated={false}
           shadow={false}
           color="transparent"
-          className="m-0 flex items-center justify-between p-6 dark:bg-gray-800"
+          className="m-0 flex items-center justify-between p-6 dark:bg-black"
         >
           <div className="flex items-center gap-3">
             <Button variant="outlined" color="blue" onClick={() => setFilterOpen(true)} className="dark:border-blue-600 dark:text-blue-400 dark:hover:bg-blue-900/20">
@@ -328,7 +328,7 @@ const ResidentsPage = () => {
             </Button>
           </div>
         </CardHeader>
-        <CardBody className="px-0 pt-0 pb-2 dark:bg-gray-800">
+        <CardBody className="px-0 pt-0 pb-2 dark:bg-black">
           {loading ? (
             <div className="flex flex-col items-center justify-center py-10">
               <Spinner className="h-6 w-6" />
@@ -347,7 +347,7 @@ const ResidentsPage = () => {
                         (el, idx) => (
                           <th
                             key={el}
-                            className={`border-b border-blue-gray-100 dark:border-gray-700 py-3 px-6 text-left ${
+                            className={`border-b border-blue-gray-100 dark:border-gray-800 py-3 px-6 text-left ${
                               idx === 6 ? "text-right" : ""
                             }`}
                           >
@@ -365,7 +365,7 @@ const ResidentsPage = () => {
                   <tbody>
                     {pageData.map((row, key) => {
                       const className = `py-3 px-6 ${
-                        key === pageData.length - 1 ? "" : "border-b border-blue-gray-50 dark:border-gray-700"
+                        key === pageData.length - 1 ? "" : "border-b border-blue-gray-50 dark:border-gray-800"
                       }`;
                       return (
                         <tr key={row.id} className="dark:hover:bg-gray-700/50">
@@ -417,7 +417,7 @@ const ResidentsPage = () => {
                                   />
                                 </IconButton>
                               </MenuHandler>
-                              <MenuList className="dark:bg-gray-800 dark:border-gray-700">
+                              <MenuList className="dark:bg-black dark:border-gray-800">
                                 <MenuItem className="dark:text-gray-300 dark:hover:bg-gray-700">{t("residents.actions.view")}</MenuItem>
                                 <MenuItem onClick={() => openEditModal(row)} className="dark:text-gray-300 dark:hover:bg-gray-700">{t("residents.actions.edit")}</MenuItem>
                                 <MenuItem className="dark:text-gray-300 dark:hover:bg-gray-700">{t("residents.actions.delete")}</MenuItem>
@@ -436,9 +436,9 @@ const ResidentsPage = () => {
                 {pageData.map((row) => (
                   <Card
                     key={row.id}
-                    className="border border-red-500 shadow-sm dark:bg-gray-800 dark:border-gray-700"
+                    className="border border-red-600 dark:border-red-600 shadow-sm dark:bg-black dark:border-gray-800"
                   >
-                    <CardBody className="space-y-3 dark:bg-gray-800">
+                    <CardBody className="space-y-3 dark:bg-black">
                       <div className="flex items-start justify-between gap-2">
                         <div className="space-y-1">
                           <Typography
@@ -465,7 +465,7 @@ const ResidentsPage = () => {
                               />
                             </IconButton>
                           </MenuHandler>
-                          <MenuList className="dark:bg-gray-800 dark:border-gray-700">
+                          <MenuList className="dark:bg-black dark:border-gray-800">
                             <MenuItem className="dark:text-gray-300 dark:hover:bg-gray-700">{t("residents.actions.view")}</MenuItem>
                             <MenuItem onClick={() => openEditModal(row)} className="dark:text-gray-300 dark:hover:bg-gray-700">{t("residents.actions.edit")}</MenuItem>
                             <MenuItem className="dark:text-gray-300 dark:hover:bg-gray-700">{t("residents.actions.delete")}</MenuItem>

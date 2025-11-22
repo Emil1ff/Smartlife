@@ -97,13 +97,13 @@ const DebtorApartmentsPage = () => {
   return (
     <div className="">
       {/* Section title bar to match Home design */}
-      <div className="w-full bg-black dark:bg-gray-900 my-4 p-4 rounded-lg shadow-lg mb-6">
+          <div className="w-full bg-black dark:bg-black my-4 p-4 rounded-lg shadow-lg mb-6 border border-red-600 dark:border-red-600">
         <h3 className="text-white font-bold">{t("debtorApartments.pageTitle")}</h3>
       </div>
 
       {/* Summary card */}
       <div className="mb-6 flex justify-end">
-        <Card className="border border-red-500 shadow-sm dark:bg-gray-800 dark:border-gray-700">
+        <Card className="border border-red-600 dark:border-red-600 shadow-sm dark:bg-black ">
           <CardBody className="p-4">
             <Typography variant="small" color="blue-gray" className="mb-1 dark:text-gray-300">
               {t("debtorApartments.summary.totalDebt")}
@@ -116,9 +116,9 @@ const DebtorApartmentsPage = () => {
       </div>
 
       {/* Filter modal */}
-      <Dialog open={filterOpen} handler={setFilterOpen} size="sm" className="dark:bg-gray-800">
+      <Dialog open={filterOpen} handler={setFilterOpen} size="sm" className="dark:bg-black border border-red-600 dark:border-red-600">
         <DialogHeader className="dark:text-white">{t("debtorApartments.filter.title")}</DialogHeader>
-        <DialogBody divider className="space-y-4 dark:bg-gray-800 dark:border-gray-700">
+        <DialogBody divider className="space-y-4 dark:bg-black ">
           <div>
             <Typography variant="small" color="blue-gray" className="mb-1 dark:text-gray-300">
               {t("debtorApartments.filter.apartment")}
@@ -156,7 +156,7 @@ const DebtorApartmentsPage = () => {
             />
           </div>
         </DialogBody>
-        <DialogFooter className="flex justify-between gap-2 dark:bg-gray-800 dark:border-gray-700">
+        <DialogFooter className="flex justify-between gap-2 dark:bg-black ">
           <Button variant="text" color="blue-gray" onClick={handleFilterClear} className="dark:text-gray-300 dark:hover:bg-gray-700">
             {t("buttons.clear")}
           </Button>
@@ -171,12 +171,12 @@ const DebtorApartmentsPage = () => {
         </DialogFooter>
       </Dialog>
 
-      <Card className="border border-red-500 shadow-sm dark:bg-gray-800 dark:border-gray-700">
+        <Card className="border border-red-600 dark:border-red-600 shadow-sm dark:bg-black ">
         <CardHeader
           floated={false}
           shadow={false}
           color="transparent"
-          className="m-0 flex items-center justify-between p-6 dark:bg-gray-800"
+          className="m-0 flex items-center justify-between p-6 dark:bg-black"
         >
           <div className="flex items-center gap-3">
             <Button variant="outlined" color="blue" onClick={() => setFilterOpen(true)} className="dark:border-blue-600 dark:text-blue-400 dark:hover:bg-blue-600/20">
@@ -184,7 +184,7 @@ const DebtorApartmentsPage = () => {
             </Button>
           </div>
         </CardHeader>
-        <CardBody className="px-0 pt-0 pb-2 dark:bg-gray-800">
+        <CardBody className="px-0 pt-0 pb-2 dark:bg-black">
           {loading ? (
             <div className="flex flex-col items-center justify-center py-10">
               <Spinner className="h-6 w-6 dark:text-blue-400" />
@@ -213,7 +213,7 @@ const DebtorApartmentsPage = () => {
                       ].map((el, idx) => (
                         <th
                           key={el}
-                          className={`border-b border-blue-gray-100 dark:border-gray-700 py-3 px-6 text-left ${
+                          className={`border-b border-blue-gray-100 dark:border-gray-800 py-3 px-6 text-left ${
                             idx === 9 ? "text-right" : ""
                           }`}
                         >
@@ -230,7 +230,7 @@ const DebtorApartmentsPage = () => {
                   <tbody>
                     {pageData.map((row, key) => {
                       const className = `py-3 px-6 ${
-                        key === pageData.length - 1 ? "" : "border-b border-blue-gray-50 dark:border-gray-700"
+                        key === pageData.length - 1 ? "" : "border-b border-blue-gray-50 dark:border-gray-800"
                       }`;
                       return (
                         <tr key={row.id} className="dark:hover:bg-gray-700/50">
@@ -309,7 +309,7 @@ const DebtorApartmentsPage = () => {
                                   />
                                 </IconButton>
                               </MenuHandler>
-                              <MenuList className="dark:bg-gray-800 dark:border-gray-700">
+                                  <MenuList className="dark:bg-black ">
                                 <MenuItem className="dark:text-gray-300 dark:hover:bg-gray-700">{t("debtorApartments.actions.view")}</MenuItem>
                                 <MenuItem className="dark:text-gray-300 dark:hover:bg-gray-700">{t("debtorApartments.actions.pay")}</MenuItem>
                                 <MenuItem className="dark:text-gray-300 dark:hover:bg-gray-700">{t("debtorApartments.actions.invoices")}</MenuItem>
@@ -326,8 +326,8 @@ const DebtorApartmentsPage = () => {
               {/* Tablet & mobile cards */}
               <div className="grid gap-4 sm:grid-cols-2 lg:hidden px-4 pt-4">
                 {pageData.map((row) => (
-                  <Card key={row.id} className="border border-red-500 shadow-sm dark:bg-gray-800 dark:border-gray-700">
-                    <CardBody className="space-y-2 dark:bg-gray-800">
+                  <Card key={row.id} className="border border-red-600 dark:border-red-600 shadow-sm dark:bg-black ">
+                    <CardBody className="space-y-2 dark:bg-black">
                       <div className="flex items-center justify-between">
                         <Typography
                           variant="small"
@@ -342,7 +342,7 @@ const DebtorApartmentsPage = () => {
                               <EllipsisVerticalIcon strokeWidth={2} className="h-5 w-5" />
                             </IconButton>
                           </MenuHandler>
-                          <MenuList className="dark:bg-gray-800 dark:border-gray-700">
+                          <MenuList className="dark:bg-black ">
                             <MenuItem className="dark:text-gray-300 dark:hover:bg-gray-700">{t("debtorApartments.actions.view")}</MenuItem>
                             <MenuItem className="dark:text-gray-300 dark:hover:bg-gray-700">{t("debtorApartments.actions.pay")}</MenuItem>
                             <MenuItem className="dark:text-gray-300 dark:hover:bg-gray-700">{t("debtorApartments.actions.invoices")}</MenuItem>

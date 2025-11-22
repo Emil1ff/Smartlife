@@ -205,15 +205,15 @@ const ApplicationsListPage = () => {
   return (
     <div className="">
       {/* Section title bar */}
-      <div className="w-full bg-black dark:bg-gray-900 my-4 p-4 rounded-lg shadow-lg mb-6">
+      <div className="w-full bg-black dark:bg-black my-4 p-4 rounded-lg shadow-lg mb-6 border border-red-600 dark:border-red-600">
         <Typography variant="h5" className="text-white font-bold">
           {t("applications.list.pageTitle")}
         </Typography>
       </div>
 
       {/* Navigation/Filter Bar */}
-      <Card className="border border-red-500 shadow-sm dark:bg-gray-800 dark:border-gray-700 mb-6">
-        <CardBody className="p-4 dark:bg-gray-800">
+      <Card className="border border-red-600 dark:border-red-600 shadow-sm dark:bg-black  mb-6">
+        <CardBody className="p-4 dark:bg-black">
           <div className="flex flex-wrap items-center gap-2 justify-between">
             <div className="flex flex-wrap items-center gap-2">
               <Button
@@ -283,8 +283,8 @@ const ApplicationsListPage = () => {
       </Card>
 
       {/* Applications Table */}
-      <Card className="border border-red-500 shadow-sm dark:bg-gray-800 dark:border-gray-700">
-        <CardBody className="p-0 dark:bg-gray-800">
+      <Card className="border border-red-600 dark:border-red-600 shadow-sm dark:bg-black">
+        <CardBody className="p-0 dark:bg-black">
           {loading ? (
             <div className="flex flex-col items-center justify-center py-10">
               <Spinner className="h-6 w-6" />
@@ -296,9 +296,9 @@ const ApplicationsListPage = () => {
             <div className="overflow-x-auto">
               <table className="w-full table-auto">
                 <thead>
-                  <tr className="bg-gray-50 dark:bg-gray-900">
+                  <tr className="bg-gray-50 dark:bg-black">
                     <th
-                      className="border-b border-blue-gray-100 dark:border-gray-700 py-3 px-4 text-left cursor-pointer"
+                      className="border-b border-blue-gray-100 dark:border-gray-800 py-3 px-4 text-left cursor-pointer"
                       onClick={() => handleSort("id")}
                     >
                       <Typography variant="small" className="text-[11px] font-semibold uppercase text-blue-gray-500 dark:text-gray-400">
@@ -306,7 +306,7 @@ const ApplicationsListPage = () => {
                       </Typography>
                     </th>
                     <th
-                      className="border-b border-blue-gray-100 dark:border-gray-700 py-3 px-4 text-left cursor-pointer"
+                      className="border-b border-blue-gray-100 dark:border-gray-800 py-3 px-4 text-left cursor-pointer"
                       onClick={() => handleSort("apartmentEmployee")}
                     >
                       <Typography variant="small" className="text-[11px] font-semibold uppercase text-blue-gray-500 dark:text-gray-400">
@@ -314,7 +314,7 @@ const ApplicationsListPage = () => {
                       </Typography>
                     </th>
                     <th
-                      className="border-b border-blue-gray-100 dark:border-gray-700 py-3 px-4 text-left cursor-pointer"
+                      className="border-b border-blue-gray-100 dark:border-gray-800 py-3 px-4 text-left cursor-pointer"
                       onClick={() => handleSort("text")}
                     >
                       <Typography variant="small" className="text-[11px] font-semibold uppercase text-blue-gray-500 dark:text-gray-400">
@@ -322,30 +322,30 @@ const ApplicationsListPage = () => {
                       </Typography>
                     </th>
                     <th
-                      className="border-b border-blue-gray-100 dark:border-gray-700 py-3 px-4 text-left cursor-pointer"
+                      className="border-b border-blue-gray-100 dark:border-gray-800 py-3 px-4 text-left cursor-pointer"
                       onClick={() => handleSort("department")}
                     >
                       <Typography variant="small" className="text-[11px] font-semibold uppercase text-blue-gray-500 dark:text-gray-400">
                         {t("applications.list.table.department")} {getSortIcon("department")}
                       </Typography>
                     </th>
-                    <th className="border-b border-blue-gray-100 dark:border-gray-700 py-3 px-4 text-left">
+                    <th className="border-b border-blue-gray-100 dark:border-gray-800 py-3 px-4 text-left">
                       <Typography variant="small" className="text-[11px] font-semibold uppercase text-blue-gray-500 dark:text-gray-400">
                         {t("applications.list.table.residentPriority")}
                       </Typography>
                     </th>
-                    <th className="border-b border-blue-gray-100 dark:border-gray-700 py-3 px-4 text-left">
+                    <th className="border-b border-blue-gray-100 dark:border-gray-800 py-3 px-4 text-left">
                       <Typography variant="small" className="text-[11px] font-semibold uppercase text-blue-gray-500 dark:text-gray-400">
                         {t("applications.list.table.operationPriority")}
                       </Typography>
                     </th>
-                    <th className="border-b border-blue-gray-100 dark:border-gray-700 py-3 px-4 text-left">
+                    <th className="border-b border-blue-gray-100 dark:border-gray-800 py-3 px-4 text-left">
                       <Typography variant="small" className="text-[11px] font-semibold uppercase text-blue-gray-500 dark:text-gray-400">
                         {t("applications.list.table.image")}
                       </Typography>
                     </th>
                     <th
-                      className="border-b border-blue-gray-100 dark:border-gray-700 py-3 px-4 text-left cursor-pointer"
+                      className="border-b border-blue-gray-100 dark:border-gray-800 py-3 px-4 text-left cursor-pointer"
                       onClick={() => handleSort("status")}
                     >
                       <Typography variant="small" className="text-[11px] font-semibold uppercase text-blue-gray-500 dark:text-gray-400">
@@ -353,14 +353,14 @@ const ApplicationsListPage = () => {
                       </Typography>
                     </th>
                     <th
-                      className="border-b border-blue-gray-100 dark:border-gray-700 py-3 px-4 text-left cursor-pointer"
+                      className="border-b border-blue-gray-100 dark:border-gray-800 py-3 px-4 text-left cursor-pointer"
                       onClick={() => handleSort("date")}
                     >
                       <Typography variant="small" className="text-[11px] font-semibold uppercase text-blue-gray-500 dark:text-gray-400">
                         {t("applications.list.table.date")} {getSortIcon("date")}
                       </Typography>
                     </th>
-                    <th className="border-b border-blue-gray-100 dark:border-gray-700 py-3 px-4 text-left">
+                    <th className="border-b border-blue-gray-100 dark:border-gray-800 py-3 px-4 text-left">
                       <Typography variant="small" className="text-[11px] font-semibold uppercase text-blue-gray-500 dark:text-gray-400">
                         {t("applications.list.table.action")}
                       </Typography>
@@ -373,21 +373,21 @@ const ApplicationsListPage = () => {
                       key={row.id}
                       className={`${
                         index % 2 === 0
-                          ? "bg-white dark:bg-gray-800"
-                          : "bg-gray-50 dark:bg-gray-900/50"
+                          ? "bg-white dark:bg-black"
+                          : "bg-gray-50 dark:bg-black/50"
                       } hover:bg-blue-gray-50 dark:hover:bg-gray-800/70 transition-colors`}
                     >
-                      <td className="py-3 px-4 border-b border-blue-gray-50 dark:border-gray-700">
+                      <td className="py-3 px-4 border-b border-blue-gray-50 dark:border-gray-800">
                         <Typography variant="small" className="text-blue-gray-700 dark:text-gray-300 font-semibold">
                           {row.id}
                         </Typography>
                       </td>
-                      <td className="py-3 px-4 border-b border-blue-gray-50 dark:border-gray-700">
+                      <td className="py-3 px-4 border-b border-blue-gray-50 dark:border-gray-800">
                         <Typography variant="small" className="text-blue-gray-700 dark:text-gray-300">
                           {row.apartmentEmployee}
                         </Typography>
                       </td>
-                      <td className="py-3 px-4 border-b border-blue-gray-50 dark:border-gray-700">
+                      <td className="py-3 px-4 border-b border-blue-gray-50 dark:border-gray-800">
                         <div className="flex items-center gap-2">
                           {row.isNew && (
                             <Chip
@@ -402,12 +402,12 @@ const ApplicationsListPage = () => {
                           </Typography>
                         </div>
                       </td>
-                      <td className="py-3 px-4 border-b border-blue-gray-50 dark:border-gray-700">
+                      <td className="py-3 px-4 border-b border-blue-gray-50 dark:border-gray-800">
                         <Typography variant="small" className="text-blue-gray-700 dark:text-gray-300">
                           {row.department}
                         </Typography>
                       </td>
-                      <td className="py-3 px-4 border-b border-blue-gray-50 dark:border-gray-700">
+                      <td className="py-3 px-4 border-b border-blue-gray-50 dark:border-gray-800">
                         {row.residentPriority !== "-" ? (
                           <div className="flex items-center gap-2">
                             <div
@@ -431,12 +431,12 @@ const ApplicationsListPage = () => {
                           </Typography>
                         )}
                       </td>
-                      <td className="py-3 px-4 border-b border-blue-gray-50 dark:border-gray-700">
+                      <td className="py-3 px-4 border-b border-blue-gray-50 dark:border-gray-800">
                         <Typography variant="small" className="text-blue-gray-700 dark:text-gray-300">
                           {row.operationPriority}
                         </Typography>
                       </td>
-                      <td className="py-3 px-4 border-b border-blue-gray-50 dark:border-gray-700">
+                      <td className="py-3 px-4 border-b border-blue-gray-50 dark:border-gray-800">
                         <div
                           className={`w-8 h-8 rounded-full flex items-center justify-center ${
                             row.image === "lightbulb"
@@ -447,7 +447,7 @@ const ApplicationsListPage = () => {
                           <span className="text-white text-xs">⚡</span>
                         </div>
                       </td>
-                      <td className="py-3 px-4 border-b border-blue-gray-50 dark:border-gray-700">
+                      <td className="py-3 px-4 border-b border-blue-gray-50 dark:border-gray-800">
                         <div className="flex items-center gap-2">
                           <div
                             className={`w-2 h-2 rounded-full ${
@@ -463,12 +463,12 @@ const ApplicationsListPage = () => {
                           </Typography>
                         </div>
                       </td>
-                      <td className="py-3 px-4 border-b border-blue-gray-50 dark:border-gray-700">
+                      <td className="py-3 px-4 border-b border-blue-gray-50 dark:border-gray-800">
                         <Typography variant="small" className="text-blue-gray-700 dark:text-gray-300">
                           {row.date}
                         </Typography>
                       </td>
-                      <td className="py-3 px-4 border-b border-blue-gray-50 dark:border-gray-700">
+                      <td className="py-3 px-4 border-b border-blue-gray-50 dark:border-gray-800">
                         <Button
                           size="sm"
                           color="blue"

@@ -149,13 +149,13 @@ const KPIPage = () => {
   return (
     <div className="">
       {/* Section title bar to match Home design */}
-      <div className="w-full bg-black dark:bg-gray-900 my-4 p-4 rounded-lg shadow-lg mb-6">
+      <div className="w-full bg-black dark:bg-black my-4 p-4 rounded-lg shadow-lg mb-6 border border-red-600 dark:border-red-600">
         <h3 className="text-white font-bold">{t("kpi.pageTitle")}</h3>
       </div>
 
       {/* Filters and Actions */}
-      <Card className="border border-red-500 shadow-sm dark:bg-gray-800 dark:border-gray-700 mb-6">
-        <CardBody className="p-6 dark:bg-gray-800">
+      <Card className="border border-red-600 dark:border-red-600 shadow-sm dark:bg-black mb-6">
+        <CardBody className="p-6 dark:bg-black">
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 flex-1 w-full lg:w-auto">
               <Typography variant="small" className="text-blue-gray-600 dark:text-gray-300 font-medium whitespace-nowrap pt-2">
@@ -237,8 +237,8 @@ const KPIPage = () => {
       </Card>
 
       {/* KPI Table */}
-      <Card className="border border-red-500 shadow-sm dark:bg-gray-800 dark:border-gray-700">
-        <CardBody className="p-0 dark:bg-gray-800">
+      <Card className="border border-red-600 dark:border-red-600 shadow-sm dark:bg-black">
+        <CardBody className="p-0 dark:bg-black">
           {loading ? (
             <div className="flex flex-col items-center justify-center py-10">
               <Spinner className="h-6 w-6" />
@@ -250,53 +250,53 @@ const KPIPage = () => {
             <div className="overflow-x-auto">
               <table className="w-full table-auto min-w-[1600px]">
                 <thead>
-                  <tr className="bg-gray-50 dark:bg-gray-900">
-                    <th className="border-b border-blue-gray-100 dark:border-gray-700 py-4 px-5 text-left sticky left-0 bg-gray-50 dark:bg-gray-900 z-10 min-w-[180px]">
+                  <tr className="bg-gray-50 dark:bg-black">
+                    <th className="border-b border-blue-gray-100 dark:border-gray-800 py-4 px-5 text-left sticky left-0 bg-gray-50 dark:bg-black z-10 min-w-[180px]">
                       <Typography variant="small" className="text-[11px] font-semibold uppercase text-blue-gray-500 dark:text-gray-400">
                         {t("kpi.table.employeeInfo")}
                       </Typography>
                     </th>
-                    <th className="border-b border-blue-gray-100 dark:border-gray-700 py-4 px-5 text-left min-w-[150px]">
+                    <th className="border-b border-blue-gray-100 dark:border-gray-800 py-4 px-5 text-left min-w-[150px]">
                       <Typography variant="small" className="text-[11px] font-semibold uppercase text-blue-gray-500 dark:text-gray-400">
                         {t("kpi.table.totalWorkOrders")}
                       </Typography>
                     </th>
-                    <th className="border-b border-blue-gray-100 dark:border-gray-700 py-4 px-5 text-left min-w-[180px]">
+                    <th className="border-b border-blue-gray-100 dark:border-gray-800 py-4 px-5 text-left min-w-[180px]">
                       <Typography variant="small" className="text-[11px] font-semibold uppercase text-blue-gray-500 dark:text-gray-400">
                         {t("kpi.table.onTimeCompletion")}
                       </Typography>
                     </th>
-                    <th className="border-b border-blue-gray-100 dark:border-gray-700 py-4 px-5 text-left min-w-[200px]">
+                    <th className="border-b border-blue-gray-100 dark:border-gray-800 py-4 px-5 text-left min-w-[200px]">
                       <Typography variant="small" className="text-[11px] font-semibold uppercase text-blue-gray-500 dark:text-gray-400">
                         {t("kpi.table.priorityReport")}
                       </Typography>
                     </th>
-                    <th className="border-b border-blue-gray-100 dark:border-gray-700 py-4 px-5 text-left min-w-[180px]">
+                    <th className="border-b border-blue-gray-100 dark:border-gray-800 py-4 px-5 text-left min-w-[180px]">
                       <Typography variant="small" className="text-[11px] font-semibold uppercase text-blue-gray-500 dark:text-gray-400">
                         {t("kpi.table.averageCompletionTime")}
                       </Typography>
                     </th>
-                    <th className="border-b border-blue-gray-100 dark:border-gray-700 py-4 px-5 text-left min-w-[120px]">
+                    <th className="border-b border-blue-gray-100 dark:border-gray-800 py-4 px-5 text-left min-w-[120px]">
                       <Typography variant="small" className="text-[11px] font-semibold uppercase text-blue-gray-500 dark:text-gray-400">
                         {t("kpi.table.delay")}
                       </Typography>
                     </th>
-                    <th className="border-b border-blue-gray-100 dark:border-gray-700 py-4 px-5 text-left min-w-[200px]">
+                    <th className="border-b border-blue-gray-100 dark:border-gray-800 py-4 px-5 text-left min-w-[200px]">
                       <Typography variant="small" className="text-[11px] font-semibold uppercase text-blue-gray-500 dark:text-gray-400">
                         {t("kpi.table.utilization")}
                       </Typography>
                     </th>
-                    <th className="border-b border-blue-gray-100 dark:border-gray-700 py-4 px-5 text-left min-w-[150px]">
+                    <th className="border-b border-blue-gray-100 dark:border-gray-800 py-4 px-5 text-left min-w-[150px]">
                       <Typography variant="small" className="text-[11px] font-semibold uppercase text-blue-gray-500 dark:text-gray-400">
                         {t("kpi.table.repeatedRequests")}
                       </Typography>
                     </th>
-                    <th className="border-b border-blue-gray-100 dark:border-gray-700 py-4 px-5 text-left min-w-[180px]">
+                    <th className="border-b border-blue-gray-100 dark:border-gray-800 py-4 px-5 text-left min-w-[180px]">
                       <Typography variant="small" className="text-[11px] font-semibold uppercase text-blue-gray-500 dark:text-gray-400">
                         {t("kpi.table.averageResponseTime")}
                       </Typography>
                     </th>
-                    <th className="border-b border-blue-gray-100 dark:border-gray-700 py-4 px-5 text-left min-w-[220px]">
+                    <th className="border-b border-blue-gray-100 dark:border-gray-800 py-4 px-5 text-left min-w-[220px]">
                       <Typography variant="small" className="text-[11px] font-semibold uppercase text-blue-gray-500 dark:text-gray-400">
                         {t("kpi.table.workOrdersPerDay")}
                       </Typography>
@@ -309,11 +309,11 @@ const KPIPage = () => {
                       key={row.id} 
                       className={`${
                         index % 2 === 0 
-                          ? "bg-white dark:bg-gray-800" 
-                          : "bg-gray-50 dark:bg-gray-900/50"
+                          ? "bg-white dark:bg-black" 
+                          : "bg-gray-50 dark:bg-black/50"
                       } hover:bg-blue-gray-50 dark:hover:bg-gray-800/70 transition-colors`}
                     >
-                      <td className="py-4 px-5 border-b border-blue-gray-50 dark:border-gray-700 sticky left-0 bg-inherit z-10">
+                      <td className="py-4 px-5 border-b border-blue-gray-50 dark:border-gray-800 sticky left-0 bg-inherit z-10">
                         <div className="flex flex-col gap-1.5">
                           <Typography variant="small" className="font-semibold text-blue-gray-900 dark:text-white text-sm">
                             {row.employeeName}
@@ -326,7 +326,7 @@ const KPIPage = () => {
                           </Typography>
                         </div>
                       </td>
-                      <td className="py-4 px-5 border-b border-blue-gray-50 dark:border-gray-700">
+                      <td className="py-4 px-5 border-b border-blue-gray-50 dark:border-gray-800">
                         <div className="flex flex-col gap-1.5">
                           <Typography variant="small" className="text-blue-gray-700 dark:text-gray-300 text-sm">
                             {t("kpi.created")}: <span className="font-semibold">{row.totalCreated}</span>
@@ -336,7 +336,7 @@ const KPIPage = () => {
                           </Typography>
                         </div>
                       </td>
-                      <td className="py-4 px-5 border-b border-blue-gray-50 dark:border-gray-700">
+                      <td className="py-4 px-5 border-b border-blue-gray-50 dark:border-gray-800">
                         <div className="flex flex-col gap-1.5">
                           <Typography variant="small" className="text-blue-gray-700 dark:text-gray-300 text-sm">
                             {t("kpi.count")}: <span className="font-semibold">{row.onTimeCompleted.count}</span>
@@ -346,7 +346,7 @@ const KPIPage = () => {
                           </Typography>
                         </div>
                       </td>
-                      <td className="py-4 px-5 border-b border-blue-gray-50 dark:border-gray-700">
+                      <td className="py-4 px-5 border-b border-blue-gray-50 dark:border-gray-800">
                         <div className="flex flex-col gap-1.5">
                           <Typography variant="small" className="text-blue-gray-700 dark:text-gray-300 text-xs leading-relaxed">
                             <span className="font-medium">{t("kpi.medium")}</span> / {row.priorityReport.medium.count} / {row.priorityReport.medium.percentage.toFixed(2)}%
@@ -365,17 +365,17 @@ const KPIPage = () => {
                           </Typography>
                         </div>
                       </td>
-                      <td className="py-4 px-5 border-b border-blue-gray-50 dark:border-gray-700">
+                      <td className="py-4 px-5 border-b border-blue-gray-50 dark:border-gray-800">
                         <Typography variant="small" className="text-blue-gray-700 dark:text-gray-300 text-sm font-medium">
                           {row.averageCompletionTime}
                         </Typography>
                       </td>
-                      <td className="py-4 px-5 border-b border-blue-gray-50 dark:border-gray-700">
+                      <td className="py-4 px-5 border-b border-blue-gray-50 dark:border-gray-800">
                         <Typography variant="small" className="text-blue-gray-700 dark:text-gray-300 text-sm font-semibold">
                           {row.delayCount}
                         </Typography>
                       </td>
-                      <td className="py-4 px-5 border-b border-blue-gray-50 dark:border-gray-700">
+                      <td className="py-4 px-5 border-b border-blue-gray-50 dark:border-gray-800">
                         <div className="flex flex-col gap-1.5">
                           <Typography variant="small" className="text-blue-gray-700 dark:text-gray-300 text-sm">
                             {t("kpi.employeeWorkHours")}: <span className="font-semibold">{row.utilization.workHours}</span>
@@ -388,17 +388,17 @@ const KPIPage = () => {
                           </Typography>
                         </div>
                       </td>
-                      <td className="py-4 px-5 border-b border-blue-gray-50 dark:border-gray-700">
+                      <td className="py-4 px-5 border-b border-blue-gray-50 dark:border-gray-800">
                         <Typography variant="small" className="text-blue-gray-700 dark:text-gray-300 text-sm font-semibold">
                           {row.repeatedRequests}
                         </Typography>
                       </td>
-                      <td className="py-4 px-5 border-b border-blue-gray-50 dark:border-gray-700">
+                      <td className="py-4 px-5 border-b border-blue-gray-50 dark:border-gray-800">
                         <Typography variant="small" className="text-blue-gray-700 dark:text-gray-300 text-sm font-medium">
                           {row.averageResponseTime}
                         </Typography>
                       </td>
-                      <td className="py-4 px-5 border-b border-blue-gray-50 dark:border-gray-700">
+                      <td className="py-4 px-5 border-b border-blue-gray-50 dark:border-gray-800">
                         <div className="flex flex-col gap-1.5">
                           <Typography variant="small" className="text-blue-gray-700 dark:text-gray-300 text-sm">
                             {t("kpi.workOrdersPerDayCount")}: <span className="font-semibold">{row.workOrdersPerDay.perDay}</span>

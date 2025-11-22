@@ -94,7 +94,7 @@ export function Notifications() {
   return (
     <div className="  mb-8">
       {/* Səhifə başlığı – digər dashboard səhifələri ilə eyni stil */}
-      <div className="w-full bg-black dark:bg-gray-900 my-4 p-5 rounded-lg shadow-lg mb-6 flex items-center justify-between gap-4">
+      <div className="w-full bg-black dark:bg-black my-4 p-5 rounded-lg shadow-lg mb-6 flex items-center justify-between gap-4 border border-red-600 dark:border-red-600">
         <div>
           <h3 className="text-white font-bold">
             {t("notifications.pageTitle")}
@@ -106,12 +106,12 @@ export function Notifications() {
         </div>
       </div>
 
-      <Card className="border border-red-600 shadow-sm dark:bg-gray-800 dark:border-gray-700">
+      <Card className="border border-red-600 dark:border-red-600 shadow-sm dark:bg-black">
         <CardHeader
           floated={false}
           shadow={false}
           color="transparent"
-          className="m-0 flex flex-col gap-4 p-6 sm:flex-row sm:items-center sm:justify-between dark:bg-gray-800"
+          className="m-0 flex flex-col gap-4 p-6 sm:flex-row sm:items-center sm:justify-between dark:bg-black"
         >
           <div>
             <Typography variant="h6" color="blue-gray" className="mb-1 dark:text-white">
@@ -145,7 +145,7 @@ export function Notifications() {
           </div> */}
         </CardHeader>
 
-        <CardBody className="px-0 pt-0 pb-2 dark:bg-gray-800">
+        <CardBody className="px-0 pt-0 pb-2 dark:bg-black">
           {filteredNotifications.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-10 px-4 text-center">
               <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-blue-gray-50 dark:bg-gray-700">
@@ -234,7 +234,7 @@ export function Notifications() {
                             />
                           </IconButton>
                         </MenuHandler>
-                        <MenuList className="dark:bg-gray-800 dark:border-gray-700">
+                        <MenuList className="dark:bg-black dark:border-gray-800">
                           {!item.read && (
                             <MenuItem onClick={() => handleMarkAsRead(item.id)} className="dark:text-gray-300 dark:hover:bg-gray-700">
                               {t("notifications.actions.markAsRead")}

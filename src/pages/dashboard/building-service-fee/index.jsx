@@ -277,7 +277,7 @@ const BuildingServiceFeePage = () => {
       </Dialog>
 
       <div className="grid gap-4 md:grid-cols-3 mb-6">
-        <Card className="border border-red-500 shadow-sm md:col-span-2">
+        <Card className="border border-red-600 dark:border-red-600 shadow-sm md:col-span-2">
           <CardHeader
             floated={false}
             shadow={false}
@@ -312,7 +312,7 @@ const BuildingServiceFeePage = () => {
           </CardBody>
         </Card>
 
-        <Card className="border border-red-500 shadow-sm">
+        <Card className="border border-red-600 dark:border-red-600 shadow-sm">
           <CardBody className="space-y-2">
             <Typography variant="small" color="blue-gray" className="font-semibold">
               {t("buildingServiceFee.summary.title")}
@@ -329,7 +329,7 @@ const BuildingServiceFeePage = () => {
 
       <div className="grid gap-4 md:grid-cols-2">
         {mockFees.map((item) => (
-          <Card key={item.id} className="border border-red-500 shadow-sm">
+          <Card key={item.id} className="border border-red-600 dark:border-red-600 shadow-sm">
             <CardHeader
               floated={false}
               shadow={false}

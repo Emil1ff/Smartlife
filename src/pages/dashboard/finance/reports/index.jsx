@@ -87,7 +87,7 @@ const ReportsPage = () => {
   return (
     <div className="">
       {/* Section title bar to match Home design */}
-      <div className="w-full bg-black dark:bg-gray-900 my-4 p-4 rounded-lg shadow-lg mb-6">
+      <div className="w-full bg-black dark:bg-black my-4 p-4 rounded-lg shadow-lg mb-6 border border-red-600 dark:border-red-600">
         <div className="flex items-center justify-between">
           <h3 className="text-white font-bold">
             {t("reports.pageTitle")} {startDate} - {endDate} ({currency})
@@ -110,9 +110,9 @@ const ReportsPage = () => {
       </div>
 
       {/* Filter modal */}
-      <Dialog open={filterOpen} handler={setFilterOpen} size="sm" className="dark:bg-gray-800">
+      <Dialog open={filterOpen} handler={setFilterOpen} size="sm" className="dark:bg-black border border-red-600 dark:border-red-600">
         <DialogHeader className="dark:text-white">{t("reports.filter.title")}</DialogHeader>
-        <DialogBody divider className="space-y-4 dark:bg-gray-800 dark:border-gray-700">
+        <DialogBody divider className="space-y-4 dark:bg-black ">
           <div>
             <Typography variant="small" color="blue-gray" className="mb-1 dark:text-gray-300">
               {t("reports.filter.startDate")}
@@ -152,7 +152,7 @@ const ReportsPage = () => {
             />
           </div>
         </DialogBody>
-        <DialogFooter className="flex justify-between gap-2 dark:bg-gray-800 dark:border-gray-700">
+        <DialogFooter className="flex justify-between gap-2 dark:bg-black ">
           <Button variant="text" color="blue-gray" onClick={handleFilterClear} className="dark:text-gray-300 dark:hover:bg-gray-700">
             {t("buttons.clear")}
           </Button>
@@ -177,8 +177,8 @@ const ReportsPage = () => {
       ) : (
         <>
           {/* Income and Expenses Section */}
-          <Card className="border border-red-500 shadow-sm mb-6 dark:bg-gray-800 dark:border-gray-700">
-            <CardBody className="p-6 dark:bg-gray-800">
+          <Card className="border border-red-600 dark:border-red-600 shadow-sm mb-6 dark:bg-black ">
+            <CardBody className="p-6 dark:bg-black">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Income Column */}
                 <div>
@@ -305,8 +305,8 @@ const ReportsPage = () => {
           </Card>
 
           {/* Balances and Financial Details Section */}
-          <Card className="border border-red-500 shadow-sm dark:bg-gray-800 dark:border-gray-700">
-            <CardBody className="p-6 dark:bg-gray-800">
+              <Card className="border border-red-600 dark:border-red-600 shadow-sm dark:bg-black ">
+            <CardBody className="p-6 dark:bg-black">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Left Column - Balances */}
                 <div>
