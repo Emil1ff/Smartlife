@@ -181,7 +181,7 @@ export function DashboardNavbar() {
   return (
     <Navbar
       color={fixedNavbar ? "white" : "transparent"}
-      className={`rounded-xl transition-all dark:bg-black border border-red-600 dark:border-red-600 ${
+      className={`rounded-xl transition-all dark:bg-gray-900 border border-red-600 dark:border-gray-700 ${
         fixedNavbar
           ? "sticky top-4 z-40 py-3 shadow-lg shadow-blue-gray-500/5"
           : "px-4 sm:px-6 py-2 sm:py-3"
@@ -259,7 +259,7 @@ export function DashboardNavbar() {
                 )}
               </IconButton>
             </MenuHandler>
-            <MenuList className="dark:bg-black dark:border-gray-800 min-w-[140px]">
+            <MenuList className="dark:bg-gray-800 dark:border-gray-700 min-w-[140px]">
               <MenuItem
                 onClick={() => setDarkMode(dispatch, false)}
                 className={`dark:text-gray-300 dark:hover:bg-gray-800 flex items-center gap-2 ${
@@ -299,7 +299,7 @@ export function DashboardNavbar() {
                 ))}
               </IconButton>
             </MenuHandler>
-            <MenuList className="min-w-[160px] dark:bg-black dark:border-gray-800">
+            <MenuList className="min-w-[160px] dark:bg-gray-800 dark:border-gray-700">
               {languages.map((lng) => (
                 <MenuItem 
                   key={lng.code} 
@@ -328,7 +328,7 @@ export function DashboardNavbar() {
                 <span className="absolute top-0 right-0 h-2 w-2 bg-red-500 rounded-full border border-white dark:border-gray-800"></span>
               </IconButton>
             </MenuHandler>
-            <MenuList className="w-80 sm:w-96 border-0 dark:bg-black dark:border-gray-800 max-h-[400px] overflow-y-auto">
+            <MenuList className="w-80 sm:w-96 border-0 dark:bg-gray-800 dark:border-gray-700 max-h-[400px] overflow-y-auto">
               <div className="px-4 py-2 border-b border-gray-200 dark:border-gray-800">
                 <Typography variant="h6" className="text-blue-gray-900 dark:text-white font-semibold">
                   {t("header.notifications")}
@@ -424,7 +424,7 @@ export function DashboardNavbar() {
                     <span className="text-sm sm:text-base">{user.fullName}</span>
                   </Button>
                 </MenuHandler>
-                <MenuList className="dark:bg-black dark:border-gray-800 min-w-[180px]">
+                <MenuList className="dark:bg-gray-800 dark:border-gray-700 min-w-[180px]">
                   <MenuItem className="dark:text-gray-300 dark:hover:bg-gray-800 flex items-center gap-2">
                     <UserCircleIcon className="h-4 w-4" />
                     <span>{t("header.profile")}</span>
@@ -449,7 +449,7 @@ export function DashboardNavbar() {
                     <UserCircleIcon className="h-5 w-5" />
                   </IconButton>
                 </MenuHandler>
-                <MenuList className="dark:bg-black dark:border-gray-800 min-w-[180px]">
+                <MenuList className="dark:bg-gray-800 dark:border-gray-700 min-w-[180px]">
                   <MenuItem className="dark:text-gray-300 dark:hover:bg-gray-800 flex items-center gap-2">
                     <UserCircleIcon className="h-4 w-4" />
                     <span>{t("header.profile")}</span>

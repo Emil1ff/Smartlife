@@ -114,7 +114,7 @@ const ReportsPage = () => {
   return (
     <div className="space-y-6">
       {/* Section title bar to match Home design */}
-      <div className="w-full bg-black dark:bg-black p-5 rounded-lg shadow-lg border border-red-600 dark:border-red-600 mt-2">
+      <div className="w-full bg-black dark:bg-gray-800 p-5 rounded-lg shadow-lg border border-red-600 dark:border-gray-700 mt-2">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <Typography variant="h5" className="text-white font-bold">
             {t("reports.pageTitle")} {formatDate(startDate)} - {formatDate(endDate)} ({currency})
@@ -144,13 +144,13 @@ const ReportsPage = () => {
       </div>
 
       {/* Filter modal */}
-      <Dialog open={filterOpen} handler={setFilterOpen} size="md" className="dark:bg-black border border-red-600 dark:border-red-600">
+      <Dialog open={filterOpen} handler={setFilterOpen} size="md" className="dark:bg-gray-800 border border-red-600 dark:border-gray-700">
         <DialogHeader className="dark:text-white border-b border-gray-200 dark:border-gray-700 pb-3">
           <Typography variant="h5" className="font-bold">
             {t("reports.filter.title")}
           </Typography>
         </DialogHeader>
-        <DialogBody divider className="space-y-5 dark:bg-black py-6">
+        <DialogBody divider className="space-y-5 dark:bg-gray-800 py-6">
           <div>
             <Typography variant="small" color="blue-gray" className="mb-2 font-semibold dark:text-gray-300">
               {t("reports.filter.startDate")}
@@ -190,7 +190,7 @@ const ReportsPage = () => {
             />
           </div>
         </DialogBody>
-        <DialogFooter className="flex justify-between gap-2 dark:bg-black border-t border-gray-200 dark:border-gray-700 pt-4">
+        <DialogFooter className="flex justify-between gap-2 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 pt-4">
           <Button 
             variant="text" 
             color="blue-gray" 
@@ -229,8 +229,8 @@ const ReportsPage = () => {
       ) : (
         <div className="space-y-4">
           {/* Income and Expenses Section */}
-          <Card className="border border-red-600 dark:border-red-600 shadow-lg dark:bg-black bg-white">
-            <CardBody className="p-4 dark:bg-black">
+          <Card className="border border-red-600 dark:border-gray-700 shadow-lg dark:bg-gray-800 bg-white">
+            <CardBody className="p-4 dark:bg-gray-800">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
                 {/* Income Column */}
                 <div className="flex flex-col h-full">
@@ -436,8 +436,8 @@ const ReportsPage = () => {
           </Card>
 
           {/* Balances and Financial Details Section */}
-          <Card className="border border-red-600 dark:border-red-600 shadow-lg dark:bg-black bg-white">
-            <CardBody className="p-4 dark:bg-black">
+          <Card className="border border-red-600 dark:border-gray-700 shadow-lg dark:bg-gray-800 bg-white">
+            <CardBody className="p-4 dark:bg-gray-800">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
                 {/* Left Column - Balances */}
                 <div className="flex flex-col h-full">
@@ -704,12 +704,12 @@ const ReportsPage = () => {
           </Card>
 
           {/* Residents Receivables Table */}
-          <Card className="border border-red-600 dark:border-red-600 shadow-lg dark:bg-black bg-white">
-            <CardBody className="p-4 dark:bg-black">
+          <Card className="border border-red-600 dark:border-gray-700 shadow-lg dark:bg-gray-800 bg-white">
+            <CardBody className="p-4 dark:bg-gray-800">
               <Typography variant="h6" color="blue-gray" className="mb-3 font-bold dark:text-white pb-2 border-b border-gray-200 dark:border-gray-700">
                 {t("reports.residentsReceivables.title")}
               </Typography>
-              <div className="overflow-x-auto">
+              <div>
                 <table className="w-full table-auto">
                   <thead>
                     <tr className="bg-gray-50 dark:bg-gray-900">
@@ -746,8 +746,8 @@ const ReportsPage = () => {
                         key={index}
                         className={`${
                           index % 2 === 0
-                            ? "bg-white dark:bg-black"
-                            : "bg-gray-50 dark:bg-black/50"
+                            ? "bg-white dark:bg-gray-800"
+                            : "bg-gray-50 dark:bg-gray-800/50"
                         } hover:bg-blue-gray-50 dark:hover:bg-gray-800/70 transition-colors`}
                       >
                         <td className="py-3 px-4 border-b border-blue-gray-50 dark:border-gray-800">

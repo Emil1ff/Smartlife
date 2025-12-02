@@ -85,9 +85,9 @@ export function Dashboard() {
           sidenavType === "dark" ? "/img/logo-ct.png" : "/img/logo-ct-dark.png"
         }
       />
-      <div className="p-4 xl:ml-80 h-[calc(100vh-2rem)] flex flex-col">
+      <div className="p-4 xl:ml-80">
         <DashboardNavbar />
-        <div className="flex-1 min-h-0 overflow-auto">
+        <div>
           <Routes>
           {filteredRoutes.map(
             ({ layout, pages }) =>

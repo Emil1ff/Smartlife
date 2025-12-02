@@ -115,7 +115,7 @@ const UserRightsPage = () => {
   return (
     <div className="h-full flex flex-col">
       {/* Section title bar */}
-      <div className="w-full bg-black dark:bg-black my-2 sm:my-3 lg:my-4 p-3 sm:p-4 rounded-lg shadow-lg mb-3 sm:mb-4 lg:mb-5 border border-red-600 dark:border-red-600 flex-shrink-0">
+      <div className="w-full bg-black dark:bg-gray-800 my-2 sm:my-3 lg:my-4 p-3 sm:p-4 rounded-lg shadow-lg mb-3 sm:mb-4 lg:mb-5 border border-red-600 dark:border-gray-700 flex-shrink-0">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div>
             <Typography variant="h5" className="text-white font-bold text-lg sm:text-xl leading-tight">
@@ -152,14 +152,14 @@ const UserRightsPage = () => {
         open={filterOpen}
         handler={setFilterOpen}
         size="md"
-        className="dark:bg-black border border-red-600 dark:border-red-600"
+        className="dark:bg-gray-900 border border-red-600 dark:border-gray-700"
       >
         <DialogHeader className="dark:text-white border-b border-gray-200 dark:border-gray-700 pb-3">
           <Typography variant="h5" className="font-bold">
             {t("buttons.filter")}
           </Typography>
         </DialogHeader>
-        <DialogBody divider className="space-y-4 dark:bg-black py-4">
+        <DialogBody divider className="space-y-4 dark:bg-gray-800 py-4">
           <Input
             label={t("userRights.rights.filter.name")}
             value={filterName}
@@ -175,7 +175,7 @@ const UserRightsPage = () => {
             labelProps={{ className: "dark:text-gray-400" }}
           />
         </DialogBody>
-        <DialogFooter className="flex justify-between gap-2 dark:bg-black border-t border-gray-200 dark:border-gray-700 pt-3">
+        <DialogFooter className="flex justify-between gap-2 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 pt-3">
           <Button
             variant="outlined"
             color="blue-gray"
@@ -209,14 +209,14 @@ const UserRightsPage = () => {
         open={createOpen}
         handler={setCreateOpen}
         size="md"
-        className="dark:bg-black border border-red-600 dark:border-red-600"
+        className="dark:bg-gray-900 border border-red-600 dark:border-gray-700"
       >
         <DialogHeader className="dark:text-white border-b border-gray-200 dark:border-gray-700 pb-3">
           <Typography variant="h5" className="font-bold">
             {t("userRights.rights.createModal.title")}
           </Typography>
         </DialogHeader>
-        <DialogBody divider className="space-y-4 dark:bg-black py-4">
+        <DialogBody divider className="space-y-4 dark:bg-gray-800 py-4">
           <Input
             label={t("userRights.rights.createModal.name")}
             value={formName}
@@ -232,7 +232,7 @@ const UserRightsPage = () => {
             labelProps={{ className: "dark:text-gray-400" }}
           />
         </DialogBody>
-        <DialogFooter className="flex justify-end gap-2 dark:bg-black border-t border-gray-200 dark:border-gray-700 pt-3">
+        <DialogFooter className="flex justify-end gap-2 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 pt-3">
           <Button
             variant="outlined"
             color="blue-gray"
@@ -256,14 +256,14 @@ const UserRightsPage = () => {
         open={editOpen}
         handler={setEditOpen}
         size="md"
-        className="dark:bg-black border border-red-600 dark:border-red-600"
+        className="dark:bg-gray-900 border border-red-600 dark:border-gray-700"
       >
         <DialogHeader className="dark:text-white border-b border-gray-200 dark:border-gray-700 pb-3">
           <Typography variant="h5" className="font-bold">
             {t("userRights.rights.editModal.title")}
           </Typography>
         </DialogHeader>
-        <DialogBody divider className="space-y-4 dark:bg-black py-4">
+        <DialogBody divider className="space-y-4 dark:bg-gray-800 py-4">
           <Input
             label={t("userRights.rights.editModal.name")}
             value={formName}
@@ -279,7 +279,7 @@ const UserRightsPage = () => {
             labelProps={{ className: "dark:text-gray-400" }}
           />
         </DialogBody>
-        <DialogFooter className="flex justify-end gap-2 dark:bg-black border-t border-gray-200 dark:border-gray-700 pt-3">
+        <DialogFooter className="flex justify-end gap-2 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 pt-3">
           <Button
             variant="outlined"
             color="blue-gray"
@@ -306,12 +306,12 @@ const UserRightsPage = () => {
           </Typography>
         </div>
       ) : (
-        <Card className="border border-red-600 dark:border-red-600 shadow-lg dark:bg-black flex flex-col flex-1 min-h-0">
+        <Card className="border border-red-600 dark:border-gray-700 shadow-lg dark:bg-gray-800 flex flex-col flex-1 min-h-0">
           <CardHeader
             floated={false}
             shadow={false}
             color="transparent"
-            className="m-0 p-3 sm:p-4 dark:bg-black border-b border-gray-200 dark:border-gray-700 flex-shrink-0"
+            className="m-0 p-3 sm:p-4 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 flex-shrink-0"
           >
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0">
               <Typography variant="h6" color="blue-gray" className="font-bold dark:text-white text-base sm:text-lg">
@@ -322,7 +322,7 @@ const UserRightsPage = () => {
               </Typography>
             </div>
           </CardHeader>
-          <CardBody className="overflow-x-auto overflow-y-auto p-0 dark:bg-black flex-1 min-h-0">
+          <CardBody className="p-0 dark:bg-gray-800 flex-1 min-h-0">
             {/* Desktop Table */}
             <div className="hidden lg:block">
               <table className="w-full min-w-max table-auto text-left">
@@ -437,9 +437,9 @@ const UserRightsPage = () => {
               {pageData.map((item) => (
                 <Card
                   key={item.id}
-                  className="border border-red-600 dark:border-red-600 shadow-sm dark:bg-black"
-                >
-                  <CardBody className="space-y-3 dark:bg-black p-4">
+                  className="border border-red-600 dark:border-gray-700 shadow-sm dark:bg-gray-800"
+                  >
+                  <CardBody className="space-y-3 dark:bg-gray-800 p-4">
                     <div className="flex items-center justify-between gap-2">
                       <div className="flex items-center gap-2 flex-1">
                         <div className="bg-purple-100 dark:bg-purple-900/40 p-1.5 rounded-full flex-shrink-0">
@@ -498,7 +498,7 @@ const UserRightsPage = () => {
               ))}
             </div>
           </CardBody>
-          <CardBody className="flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-0 border-t border-gray-200 dark:border-gray-700 p-3 sm:p-4 dark:bg-black flex-shrink-0">
+          <CardBody className="flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-0 border-t border-gray-200 dark:border-gray-700 p-3 sm:p-4 dark:bg-gray-800 flex-shrink-0">
             <Typography variant="small" color="blue-gray" className="font-normal dark:text-gray-300 text-xs sm:text-sm">
               {t("common.showing")} {startIndex + 1} - {Math.min(startIndex + ITEMS_PER_PAGE, data.length)} {t("common.of")} {data.length}
             </Typography>

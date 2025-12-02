@@ -17,31 +17,81 @@ import {
   DialogBody,
   DialogFooter,
   Input,
+  Switch,
 } from "@material-tailwind/react";
 import { EllipsisVerticalIcon } from "@heroicons/react/24/outline";
 import { useTranslation } from "react-i18next";
 
-const data = Array.from({ length: 50 }, (_, index) => ({
-  id: index + 1,
-  number: `Mənzil ${index + 1}`,
-  block: `Blok ${String.fromCharCode(65 + (index % 5))}`,
-  floor: (index % 16) + 1,
-  area: 60 + (index % 10) * 5,
-  resident: `Sakin ${index + 1}`,
-  serviceFee: 20 + (index % 6) * 2,
-}));
+// Hər mərtəbədə 5 mənzil olacaq şəkildə data yaradırıq
+// 50 mənzil = 10 mərtəbə (hər mərtəbədə 5 mənzil)
+const TOTAL_APARTMENTS = 50;
+const APARTMENTS_PER_FLOOR = 5;
+const TOTAL_FLOORS = Math.ceil(TOTAL_APARTMENTS / APARTMENTS_PER_FLOOR);
 
-const ITEMS_PER_PAGE = 10;
+const data = Array.from({ length: TOTAL_APARTMENTS }, (_, index) => {
+  const floor = Math.floor(index / APARTMENTS_PER_FLOOR) + 1; // 1-ci mərtəbə: 0-4, 2-ci mərtəbə: 5-9, ...
+  const apartmentInFloor = (index % APARTMENTS_PER_FLOOR) + 1; // Mərtəbə daxilində mənzil nömrəsi (1-5)
+  const blockIndex = Math.floor(index / (APARTMENTS_PER_FLOOR * TOTAL_FLOORS / 5)) % 5; // 5 blok
+  
+  return {
+    id: index + 1,
+    number: `Mənzil ${floor}${String(apartmentInFloor).padStart(2, '0')}`, // Məs: Mənzil 101, Mənzil 102, ...
+    block: `Blok ${String.fromCharCode(65 + blockIndex)}`, // Blok A, B, C, D, E
+    floor: floor,
+    area: 60 + (index % 10) * 5, // 60-105 m² arası
+    resident: `Sakin ${index + 1}`,
+    serviceFee: 20 + (index % 6) * 2, // 20-30 arası
+  };
+});
 
-const PropertiesPage = () => {
+// Mənzilləri mərtəbələrə görə qruplaşdırırıq
+const groupByFloor = (properties) => {
+  const grouped = {};
+  properties.forEach((prop) => {
+    if (!grouped[prop.floor]) {
+      grouped[prop.floor] = [];
+    }
+    grouped[prop.floor].push(prop);
+  });
+  return grouped;
+};
+
+// Hər mərtəbədə 5 mənzil olacaq şəkildə qruplaşdırırıq
+const organizeByFloors = (properties, ascending = true) => {
+  const grouped = groupByFloor(properties);
+  const floors = Object.keys(grouped)
+    .map(Number)
+    .sort((a, b) => ascending ? a - b : b - a); // Sıralama istiqaməti
+  
+  const organized = [];
+  floors.forEach((floor) => {
+    const floorProperties = grouped[floor];
+    // Hər mərtəbədə tam 5 mənzil olacaq şəkildə bölürük
+    for (let i = 0; i < floorProperties.length; i += 5) {
+      const apartments = floorProperties.slice(i, i + 5);
+      // Əgər 5-dən az mənzil qalıbsa, boş yerləri null ilə doldururuq
+      while (apartments.length < 5) {
+        apartments.push(null);
+      }
+      organized.push({
+        floor,
+        apartments: apartments.slice(0, 5), // Həmişə 5 mənzil
+      });
+    }
+  });
+  
+  return organized;
+};
+
+function PropertiesPage() {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
-  const [page, setPage] = useState(1);
   const [filterOpen, setFilterOpen] = useState(false);
   const [createOpen, setCreateOpen] = useState(false);
   const [editOpen, setEditOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
+  const [sortAscending, setSortAscending] = useState(true); // true = aşağıdan yuxarı, false = yuxarıdan aşağı
 
   const [filterNumber, setFilterNumber] = useState("");
   const [filterBlock, setFilterBlock] = useState("");
@@ -57,12 +107,9 @@ const PropertiesPage = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const totalPages = Math.ceil(data.length / ITEMS_PER_PAGE);
-  const startIndex = (page - 1) * ITEMS_PER_PAGE;
-  const pageData = data.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+  // Mənzilləri mərtəbələrə görə təşkil edirik
+  const organizedData = organizeByFloors(data, sortAscending);
 
-  const handlePrev = () => setPage((prev) => Math.max(1, prev - 1));
-  const handleNext = () => setPage((prev) => Math.min(totalPages, prev + 1));
 
   const openCreateModal = () => {
     setSelectedItem(null);
@@ -109,14 +156,14 @@ const PropertiesPage = () => {
   return (
     <div className=" ">
       {/* Section title bar to match Home design */}
-      <div className="w-full bg-black dark:bg-black my-4 p-4 rounded-lg shadow-lg mb-6 border border-red-600 dark:border-red-600">
+      <div className="w-full bg-black dark:bg-gray-800 my-4 p-4 rounded-lg shadow-lg mb-6 border border-red-600 dark:border-gray-700">
         <h3 className="text-white font-bold">{t("properties.pageTitle")}</h3>
       </div>
 
       {/* Filter modal */}
-      <Dialog open={filterOpen} handler={setFilterOpen} size="sm" className="dark:bg-black">
-        <DialogHeader className="dark:bg-black dark:text-white">{t("properties.filter.title")}</DialogHeader>
-        <DialogBody divider className="space-y-4 dark:bg-black dark:border-gray-800">
+      <Dialog open={filterOpen} handler={setFilterOpen} size="sm" className="dark:bg-gray-900">
+        <DialogHeader className="dark:bg-gray-800 dark:text-white">{t("properties.filter.title")}</DialogHeader>
+        <DialogBody divider className="space-y-4 dark:bg-gray-800 dark:border-gray-700">
           <div>
             <Typography variant="small" color="blue-gray" className="mb-1 dark:text-gray-300">
               {t("properties.filter.apartment")}
@@ -142,7 +189,7 @@ const PropertiesPage = () => {
             />
           </div>
         </DialogBody>
-        <DialogFooter className="flex justify-between gap-2 dark:bg-black dark:border-gray-800">
+        <DialogFooter className="flex justify-between gap-2 dark:bg-gray-800 dark:border-gray-700">
           <Button variant="text" color="blue-gray" onClick={handleFilterClear} className="dark:text-gray-300 dark:hover:bg-gray-700">
             {t("properties.filter.clear")}
           </Button>
@@ -158,9 +205,9 @@ const PropertiesPage = () => {
       </Dialog>
 
       {/* Create property modal */}
-      <Dialog open={createOpen} handler={setCreateOpen} size="sm" className="dark:bg-black">
-        <DialogHeader className="dark:bg-black dark:text-white">{t("properties.create.title")}</DialogHeader>
-        <DialogBody divider className="space-y-4 dark:bg-black dark:border-gray-800">
+      <Dialog open={createOpen} handler={setCreateOpen} size="sm" className="dark:bg-gray-900">
+        <DialogHeader className="dark:bg-gray-800 dark:text-white">{t("properties.create.title")}</DialogHeader>
+        <DialogBody divider className="space-y-4 dark:bg-gray-800 dark:border-gray-700">
           <div>
             <Typography variant="small" color="blue-gray" className="mb-1 dark:text-gray-300">
               {t("properties.create.apartment")}
@@ -226,7 +273,7 @@ const PropertiesPage = () => {
             />
           </div>
         </DialogBody>
-        <DialogFooter className="flex justify-end gap-2 dark:bg-black dark:border-gray-800">
+        <DialogFooter className="flex justify-end gap-2 dark:bg-gray-800 dark:border-gray-700">
           <Button variant="outlined" color="blue-gray" onClick={() => setCreateOpen(false)} className="dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-700">
             {t("properties.create.cancel")}
           </Button>
@@ -237,9 +284,9 @@ const PropertiesPage = () => {
       </Dialog>
 
       {/* Edit property modal */}
-      <Dialog open={editOpen} handler={setEditOpen} size="sm" className="dark:bg-black">
-        <DialogHeader className="dark:bg-black dark:text-white">{t("properties.edit.title")}</DialogHeader>
-        <DialogBody divider className="space-y-4 dark:bg-black dark:border-gray-800">
+      <Dialog open={editOpen} handler={setEditOpen} size="sm" className="dark:bg-gray-900">
+        <DialogHeader className="dark:bg-gray-800 dark:text-white">{t("properties.edit.title")}</DialogHeader>
+        <DialogBody divider className="space-y-4 dark:bg-gray-800 dark:border-gray-700">
           <div>
             <Typography variant="small" color="blue-gray" className="mb-1 dark:text-gray-300">
               {t("properties.edit.apartment")}
@@ -305,7 +352,7 @@ const PropertiesPage = () => {
             />
           </div>
         </DialogBody>
-        <DialogFooter className="flex justify-end gap-2 dark:bg-black dark:border-gray-800">
+        <DialogFooter className="flex justify-end gap-2 dark:bg-gray-800 dark:border-gray-700">
           <Button variant="outlined" color="blue-gray" onClick={() => setEditOpen(false)} className="dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-700">
             {t("properties.edit.cancel")}
           </Button>
@@ -315,12 +362,12 @@ const PropertiesPage = () => {
         </DialogFooter>
       </Dialog>
 
-      <Card className="border border-red-600 dark:border-red-600 shadow-sm dark:bg-black">
+      <Card className="border border-red-600 dark:border-gray-700 shadow-sm dark:bg-gray-800">
         <CardHeader
           floated={false}
           shadow={false}
           color="transparent"
-          className="m-0 flex items-center justify-between p-6 dark:bg-black"
+          className="m-0 flex items-center justify-between p-6 dark:bg-gray-800"
         >
           <div className="flex items-center gap-3">
             <Button variant="outlined" color="blue" onClick={() => setFilterOpen(true)} className="dark:border-blue-600 dark:text-blue-400 dark:hover:bg-blue-900/20">
@@ -330,8 +377,22 @@ const PropertiesPage = () => {
               {t("properties.actions.add")}
             </Button>
           </div>
+          <div className="flex items-center gap-3">
+            <Typography variant="small" className="text-blue-gray-700 dark:text-gray-300 text-sm">
+              {sortAscending ? t("properties.sort.ascending") : t("properties.sort.descending")}
+            </Typography>
+            <Switch
+              checked={sortAscending}
+              onChange={(e) => setSortAscending(e.target.checked)}
+              color="blue"
+              className="dark:bg-gray-700"
+              labelProps={{
+                className: "hidden",
+              }}
+            />
+          </div>
         </CardHeader>
-        <CardBody className="px-0 pt-0 pb-2 dark:bg-black">
+        <CardBody className="px-4 pt-4 pb-6 dark:bg-gray-800">
           {loading ? (
             <div className="flex flex-col items-center justify-center py-10">
               <Spinner className="h-6 w-6" />
@@ -340,196 +401,171 @@ const PropertiesPage = () => {
               </Typography>
             </div>
           ) : (
-            <>
-              {/* Desktop table */}
-              <div className="hidden lg:block">
-                <table className="w-full table-auto">
-                  <thead>
-                    <tr>
-                      {[t("properties.table.id"), t("properties.table.apartment"), t("properties.table.block"), t("properties.table.floor"), t("properties.table.area"), t("properties.table.resident"), t("properties.table.actions")].map(
-                        (el, idx) => (
-                          <th
-                            key={el}
-                            className={`border-b border-blue-gray-100 dark:border-gray-800 py-3 px-6 text-left ${
-                              idx === 6 ? "text-right" : ""
-                            }`}
+            <div className="space-y-6">
+              {/* Hər mərtəbə üçün bir sətir - aşağıdan yuxarı (1-ci mərtəbə ən aşağıda) */}
+              {organizedData.map((floorGroup, floorIndex) => (
+                <div key={`floor-${floorGroup.floor}-${floorIndex}`} className="space-y-3">
+                  {/* Mərtəbə başlığı */}
+                  <div className="flex items-center gap-2">
+                    <Typography
+                      variant="h6"
+                      className="text-blue-gray-700 dark:text-white font-bold"
+                    >
+                      {t("properties.table.floor")} {floorGroup.floor}
+                    </Typography>
+                    <div className="flex-1 h-px bg-blue-gray-200 dark:bg-gray-700"></div>
+                  </div>
+                  
+                  {/* Mənzil card-ları - hər sətirdə tam 5 mənzil */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                    {floorGroup.apartments.map((apartment, aptIndex) => {
+                      // Əgər mənzil yoxdursa (null), boş card göstəririk
+                      if (!apartment) {
+                        return (
+                          <Card
+                            key={`empty-${floorGroup.floor}-${aptIndex}`}
+                            className="border border-gray-200 dark:border-gray-700 shadow-sm dark:bg-gray-800 opacity-50"
                           >
-                            <Typography
-                              variant="small"
-                              className="text-[11px] font-medium uppercase text-blue-gray-400 dark:text-gray-400"
-                            >
-                              {el}
-                            </Typography>
-                          </th>
-                        )
-                      )}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {pageData.map((row, key) => {
-                      const className = `py-3 px-6 ${
-                        key === pageData.length - 1 ? "" : "border-b border-blue-gray-50 dark:border-gray-800"
-                      }`;
+                            <CardBody className="p-4 dark:bg-gray-800">
+                              <div className="flex items-center justify-center h-32">
+                                <Typography
+                                  variant="small"
+                                  className="text-blue-gray-400 dark:text-gray-600 text-xs"
+                                >
+                                  {t("properties.empty")}
+                                </Typography>
+                              </div>
+                            </CardBody>
+                          </Card>
+                        );
+                      }
+                      
                       return (
-                        <tr key={row.id} className="dark:hover:bg-gray-700/50">
-                          <td className={className}>
-                            <Typography variant="small" color="blue-gray" className="dark:text-gray-300">
-                              {row.id}
-                            </Typography>
-                          </td>
-                          <td className={className}>
-                            <Typography
-                              variant="small"
-                              color="blue-gray"
-                              className="font-semibold dark:text-white"
-                            >
-                              {row.number}
-                            </Typography>
-                          </td>
-                          <td className={className}>
-                            <Typography variant="small" color="blue-gray" className="dark:text-gray-300">
-                              {row.block}
-                            </Typography>
-                          </td>
-                          <td className={className}>
-                            <Typography variant="small" color="blue-gray" className="dark:text-gray-300">
-                              {row.floor}
-                            </Typography>
-                          </td>
-                          <td className={className}>
-                            <Typography variant="small" color="blue-gray" className="dark:text-gray-300">
-                              {row.area}
-                            </Typography>
-                          </td>
-                          <td className={className}>
-                            <Typography variant="small" color="blue-gray" className="dark:text-gray-300">
-                              {row.resident}
-                            </Typography>
-                          </td>
-                          <td className={`${className} text-right`}>
+                      <Card
+                        key={apartment.id}
+                        className="border border-gray-200 dark:border-gray-700 shadow-sm dark:bg-gray-800 hover:shadow-md transition-shadow cursor-pointer"
+                        onClick={() => openEditModal(apartment)}
+                      >
+                        <CardBody className="p-4 dark:bg-gray-800">
+                          <div className="flex items-start justify-between mb-3">
+                            <div className="flex-1">
+                              <Typography
+                                variant="h6"
+                                className="text-blue-gray-900 dark:text-white font-bold text-lg mb-1"
+                              >
+                                {apartment.number}
+                              </Typography>
+                              <Typography
+                                variant="small"
+                                className="text-blue-gray-500 dark:text-gray-400 text-xs"
+                              >
+                                ID: {apartment.id}
+                              </Typography>
+                            </div>
                             <Menu placement="left-start">
                               <MenuHandler>
-                                <IconButton size="sm" variant="text" color="blue-gray" className="dark:text-gray-300 dark:hover:bg-gray-700">
+                                <IconButton 
+                                  size="sm" 
+                                  variant="text" 
+                                  color="blue-gray" 
+                                  className="dark:text-gray-300 dark:hover:bg-gray-700"
+                                  onClick={(e) => e.stopPropagation()}
+                                >
                                   <EllipsisVerticalIcon
                                     strokeWidth={2}
                                     className="h-5 w-5"
                                   />
                                 </IconButton>
                               </MenuHandler>
-                              <MenuList className="dark:bg-black dark:border-gray-800">
-                                <MenuItem onClick={() => openFeePage(row)} className="dark:text-gray-300 dark:hover:bg-gray-700">{t("properties.actions.serviceFee")}</MenuItem>
-                                <MenuItem onClick={() => openEditModal(row)} className="dark:text-gray-300 dark:hover:bg-gray-700">{t("properties.actions.edit")}</MenuItem>
-                                <MenuItem className="dark:text-gray-300 dark:hover:bg-gray-700">{t("properties.actions.delete")}</MenuItem>
+                              <MenuList className="dark:bg-gray-800 dark:border-gray-700">
+                                <MenuItem 
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    openFeePage(apartment);
+                                  }} 
+                                  className="dark:text-gray-300 dark:hover:bg-gray-700"
+                                >
+                                  {t("properties.actions.serviceFee")}
+                                </MenuItem>
+                                <MenuItem 
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    openEditModal(apartment);
+                                  }} 
+                                  className="dark:text-gray-300 dark:hover:bg-gray-700"
+                                >
+                                  {t("properties.actions.edit")}
+                                </MenuItem>
+                                <MenuItem 
+                                  className="dark:text-gray-300 dark:hover:bg-gray-700"
+                                  onClick={(e) => e.stopPropagation()}
+                                >
+                                  {t("properties.actions.delete")}
+                                </MenuItem>
                               </MenuList>
                             </Menu>
-                          </td>
-                        </tr>
+                          </div>
+                          
+                          <div className="space-y-2">
+                            <div className="flex items-center justify-between">
+                              <Typography
+                                variant="small"
+                                className="text-blue-gray-600 dark:text-gray-400 text-xs"
+                              >
+                                {t("properties.table.block")}:
+                              </Typography>
+                              <Typography
+                                variant="small"
+                                className="text-blue-gray-900 dark:text-white font-semibold text-xs"
+                              >
+                                {apartment.block}
+                              </Typography>
+                            </div>
+                            
+                            <div className="flex items-center justify-between">
+                              <Typography
+                                variant="small"
+                                className="text-blue-gray-600 dark:text-gray-400 text-xs"
+                              >
+                                {t("properties.table.area")}:
+                              </Typography>
+                              <Typography
+                                variant="small"
+                                className="text-blue-gray-900 dark:text-white font-semibold text-xs"
+                              >
+                                {apartment.area} m²
+                              </Typography>
+                            </div>
+                            
+                            <div className="flex items-center justify-between">
+                              <Typography
+                                variant="small"
+                                className="text-blue-gray-600 dark:text-gray-400 text-xs"
+                              >
+                                {t("properties.table.resident")}:
+                              </Typography>
+                              <Typography
+                                variant="small"
+                                className="text-blue-gray-900 dark:text-white font-semibold text-xs truncate max-w-[120px]"
+                                title={apartment.resident}
+                              >
+                                {apartment.resident}
+                              </Typography>
+                            </div>
+                          </div>
+                        </CardBody>
+                      </Card>
                       );
                     })}
-                  </tbody>
-                </table>
-              </div>
-
-              {/* Tablet & mobile cards */}
-              <div className="grid gap-4 sm:grid-cols-2 lg:hidden px-4 pt-4">
-                {pageData.map((row) => (
-                  <Card
-                    key={row.id}
-                    className="border border-red-600 dark:border-red-600 shadow-sm dark:bg-black dark:border-gray-800"
-                  >
-                    <CardBody className="space-y-3 dark:bg-black">
-                      <div className="flex items-center justify-between gap-2">
-                        <div>
-                          <Typography
-                            variant="small"
-                            color="blue-gray"
-                            className="font-semibold dark:text-white"
-                          >
-                            {row.number}
-                          </Typography>
-                          <Typography variant="small" className="text-xs text-blue-gray-400 dark:text-gray-400">
-                            {t("properties.table.id")}: {row.id}
-                          </Typography>
-                        </div>
-                        <Menu placement="left-start">
-                          <MenuHandler>
-                            <IconButton size="sm" variant="text" color="blue-gray" className="dark:text-gray-300 dark:hover:bg-gray-700">
-                              <EllipsisVerticalIcon
-                                strokeWidth={2}
-                                className="h-5 w-5"
-                              />
-                            </IconButton>
-                          </MenuHandler>
-                          <MenuList className="dark:bg-black dark:border-gray-800">
-                            <MenuItem onClick={() => openFeePage(row)} className="dark:text-gray-300 dark:hover:bg-gray-700">{t("properties.actions.serviceFee")}</MenuItem>
-                            <MenuItem onClick={() => openEditModal(row)} className="dark:text-gray-300 dark:hover:bg-gray-700">{t("properties.actions.edit")}</MenuItem>
-                            <MenuItem className="dark:text-gray-300 dark:hover:bg-gray-700">{t("properties.actions.delete")}</MenuItem>
-                          </MenuList>
-                        </Menu>
-                      </div>
-                      <Typography variant="small" color="blue-gray" className="dark:text-gray-300">
-                        {t("properties.table.block")}: {row.block}
-                      </Typography>
-                      <Typography variant="small" color="blue-gray" className="dark:text-gray-300">
-                        {t("properties.table.floor")}: {row.floor}
-                      </Typography>
-                      <Typography variant="small" color="blue-gray" className="dark:text-gray-300">
-                        {t("properties.table.area")}: {row.area} m²
-                      </Typography>
-                      <Typography variant="small" color="blue-gray" className="dark:text-gray-300">
-                        {t("properties.table.resident")}: {row.resident}
-                      </Typography>
-                    </CardBody>
-                  </Card>
-                ))}
-              </div>
-
-              <div className="flex items-center justify-end gap-2 px-6 pt-4">
-                <Button
-                  variant="text"
-                  size="sm"
-                  color="blue-gray"
-                  onClick={handlePrev}
-                  disabled={page === 1}
-                  className="dark:text-gray-300 dark:hover:bg-gray-700 dark:disabled:text-gray-600"
-                >
-                  {t("properties.pagination.prev")}
-                </Button>
-                {Array.from({ length: totalPages }, (_, index) => index + 1).map(
-                  (pageNumber) => (
-                    <Button
-                      key={pageNumber}
-                      variant={pageNumber === page ? "filled" : "text"}
-                      size="sm"
-                      color={pageNumber === page ? "blue" : "blue-gray"}
-                      onClick={() => setPage(pageNumber)}
-                      className={`min-w-[32px] px-2 ${
-                        pageNumber === page 
-                          ? "dark:bg-blue-600 dark:hover:bg-blue-700" 
-                          : "dark:text-gray-300 dark:hover:bg-gray-700"
-                      }`}
-                    >
-                      {pageNumber}
-                    </Button>
-                  )
-                )}
-                <Button
-                  variant="text"
-                  size="sm"
-                  color="blue-gray"
-                  onClick={handleNext}
-                  disabled={page === totalPages}
-                  className="dark:text-gray-300 dark:hover:bg-gray-700 dark:disabled:text-gray-600"
-                >
-                  {t("properties.pagination.next")}
-                </Button>
-              </div>
-            </>
+                  </div>
+                </div>
+              ))}
+            </div>
           )}
         </CardBody>
       </Card>
     </div>
   );
-};
+}
 
 export default PropertiesPage;

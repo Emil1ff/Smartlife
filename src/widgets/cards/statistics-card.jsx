@@ -55,7 +55,7 @@ export function StatisticsCard({ color, icon, title, value, footer }) {
       whileHover={{ scale: 1.02 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
     >
-      <Card className="border border-red-900 dark:border-red-900 shadow-sm dark:bg-black relative overflow-hidden h-full flex flex-col">
+      <Card className="border border-red-900 dark:border-gray-700 shadow-sm dark:bg-gray-800 relative overflow-hidden h-full flex flex-col">
         <motion.div
           style={{
             transform: "translateZ(60px)",

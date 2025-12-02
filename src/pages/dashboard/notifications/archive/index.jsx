@@ -80,12 +80,12 @@ const NotificationArchivePage = () => {
 
   return (
     <div className="mt-12 mb-8">
-      <Card className="border border-red-600 dark:border-red-600 shadow-sm dark:bg-black">
+      <Card className="border border-red-600 dark:border-gray-700 shadow-sm dark:bg-gray-800">
         <CardHeader
           floated={false}
           shadow={false}
           color="transparent"
-          className="m-0 p-6 dark:bg-black"
+          className="m-0 p-6 dark:bg-gray-800"
         >
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
@@ -113,8 +113,8 @@ const NotificationArchivePage = () => {
             </Button>
           </div>
         </CardHeader>
-        <CardBody className="px-0 pb-2 dark:bg-black">
-          <div className="overflow-x-auto">
+        <CardBody className="px-0 pb-2 dark:bg-gray-800">
+          <div>
             <table className="w-full min-w-max table-auto text-left">
               <thead>
                 <tr>
@@ -156,8 +156,8 @@ const NotificationArchivePage = () => {
                     key={row.id}
                     className={`${
                       index % 2 === 0
-                        ? "bg-white dark:bg-black"
-                        : "bg-gray-50 dark:bg-black/50"
+                        ? "bg-white dark:bg-gray-800"
+                        : "bg-gray-50 dark:bg-gray-800/50"
                     } hover:bg-blue-gray-50 dark:hover:bg-gray-800/70 transition-colors`}
                   >
                     <td className="py-3 px-4 border-b border-blue-gray-50 dark:border-gray-800">

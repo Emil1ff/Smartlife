@@ -430,15 +430,15 @@ const ApplicationsListPage = () => {
   return (
     <div className="">
       {/* Section title bar */}
-      <div className="w-full bg-black dark:bg-black my-4 p-4 rounded-lg shadow-lg mb-6 border border-red-600 dark:border-red-600">
+      <div className="w-full bg-black dark:bg-gray-800 my-4 p-4 rounded-lg shadow-lg mb-6 border border-red-600 dark:border-gray-700">
         <Typography variant="h5" className="text-white font-bold">
           {t("applications.list.pageTitle")}
         </Typography>
       </div>
 
       {/* Navigation/Filter Bar */}
-      <Card className="border border-red-600 dark:border-red-600 shadow-sm dark:bg-black  mb-6">
-        <CardBody className="p-4 dark:bg-black">
+      <Card className="border border-red-600 dark:border-gray-700 shadow-sm dark:bg-gray-800  mb-6">
+        <CardBody className="p-4 dark:bg-gray-800">
           <div className="flex flex-wrap items-center gap-2 justify-between">
             <div className="flex flex-wrap items-center gap-2">
               <Button
@@ -521,9 +521,9 @@ const ApplicationsListPage = () => {
       </Card>
 
       {/* Search Modal */}
-      <Dialog open={searchOpen} handler={setSearchOpen} size="md" className="dark:bg-black border border-red-600 dark:border-red-600">
+      <Dialog open={searchOpen} handler={setSearchOpen} size="md" className="dark:bg-gray-900 border border-red-600 dark:border-gray-700">
         <DialogHeader className="dark:text-white">{t("applications.list.searchModal.title")}</DialogHeader>
-        <DialogBody divider className="space-y-4 dark:bg-black">
+        <DialogBody divider className="space-y-4 dark:bg-gray-800">
           <div>
             <Typography variant="small" color="blue-gray" className="mb-1 dark:text-gray-300">
               {t("applications.list.searchModal.searchText")}
@@ -615,7 +615,7 @@ const ApplicationsListPage = () => {
             </div>
           </div>
         </DialogBody>
-        <DialogFooter className="flex justify-between gap-2 dark:bg-black">
+        <DialogFooter className="flex justify-between gap-2 dark:bg-gray-800">
           <Button variant="text" color="blue-gray" onClick={handleSearchClear} className="dark:text-gray-300 dark:hover:bg-gray-700">
             {t("buttons.clear")}
           </Button>
@@ -631,9 +631,9 @@ const ApplicationsListPage = () => {
       </Dialog>
 
       {/* Category Modal */}
-      <Dialog open={categoryOpen} handler={setCategoryOpen} size="sm" className="dark:bg-black border border-red-600 dark:border-red-600">
+      <Dialog open={categoryOpen} handler={setCategoryOpen} size="sm" className="dark:bg-gray-900 border border-red-600 dark:border-gray-700">
         <DialogHeader className="dark:text-white">{t("applications.list.categoryModal.title")}</DialogHeader>
-        <DialogBody divider className="space-y-4 dark:bg-black">
+        <DialogBody divider className="space-y-4 dark:bg-gray-800">
           <div>
             <Typography variant="small" color="blue-gray" className="mb-1 dark:text-gray-300">
               {t("applications.list.categoryModal.category")}
@@ -667,7 +667,7 @@ const ApplicationsListPage = () => {
             </Select>
           </div>
         </DialogBody>
-        <DialogFooter className="flex justify-between gap-2 dark:bg-black">
+        <DialogFooter className="flex justify-between gap-2 dark:bg-gray-800">
           <Button variant="text" color="blue-gray" onClick={handleCategoryClear} className="dark:text-gray-300 dark:hover:bg-gray-700">
             {t("buttons.clear")}
           </Button>
@@ -683,9 +683,9 @@ const ApplicationsListPage = () => {
       </Dialog>
 
       {/* New Application Modal */}
-      <Dialog open={newApplicationOpen} handler={setNewApplicationOpen} size="lg" className="dark:bg-black border border-red-600 dark:border-red-600">
+      <Dialog open={newApplicationOpen} handler={setNewApplicationOpen} size="lg" className="dark:bg-gray-900 border border-red-600 dark:border-gray-700">
         <DialogHeader className="dark:text-white">{t("applications.list.newApplicationModal.title")}</DialogHeader>
-        <DialogBody divider className="space-y-4 dark:bg-black max-h-[70vh] overflow-y-auto">
+        <DialogBody divider className="space-y-4 dark:bg-gray-800">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <Typography variant="small" color="blue-gray" className="mb-1 dark:text-gray-300">
@@ -851,7 +851,7 @@ const ApplicationsListPage = () => {
             />
           </div>
         </DialogBody>
-        <DialogFooter className="flex justify-end gap-2 dark:bg-black">
+        <DialogFooter className="flex justify-end gap-2 dark:bg-gray-800">
           <Button variant="outlined" color="blue-gray" onClick={handleNewApplicationCancel} className="dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-700">
             {t("buttons.cancel")}
           </Button>
@@ -863,9 +863,9 @@ const ApplicationsListPage = () => {
 
       {/* Details Modal */}
       {selectedApplication && (
-        <Dialog open={detailsOpen} handler={handleDetailsClose} size="xl" className="dark:bg-black border border-red-600 dark:border-red-600">
+        <Dialog open={detailsOpen} handler={handleDetailsClose} size="xl" className="dark:bg-gray-900 border border-red-600 dark:border-gray-700">
           <DialogHeader className="dark:text-white">{t("applications.list.detailsModal.title")}</DialogHeader>
-          <DialogBody divider className="space-y-6 dark:bg-black max-h-[70vh] overflow-y-auto">
+          <DialogBody divider className="space-y-6 dark:bg-gray-800">
             {/* Application ID */}
             <div className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-900 rounded-lg">
               <Typography variant="small" color="blue-gray" className="font-semibold dark:text-gray-300">
@@ -1012,7 +1012,7 @@ const ApplicationsListPage = () => {
               </div>
             )}
           </DialogBody>
-          <DialogFooter className="flex justify-end gap-2 dark:bg-black">
+          <DialogFooter className="flex justify-end gap-2 dark:bg-gray-800">
             <Button variant="outlined" color="blue-gray" onClick={handleDetailsClose} className="dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-700">
               {t("buttons.cancel")}
             </Button>
@@ -1021,8 +1021,8 @@ const ApplicationsListPage = () => {
       )}
 
       {/* Applications Table */}
-      <Card className="border border-red-600 dark:border-red-600 shadow-sm dark:bg-black">
-        <CardBody className="p-0 dark:bg-black">
+      <Card className="border border-red-600 dark:border-gray-700 shadow-sm dark:bg-gray-800">
+        <CardBody className="p-0 dark:bg-gray-800">
           {loading ? (
             <div className="flex flex-col items-center justify-center py-10">
               <Spinner className="h-6 w-6" />
@@ -1031,10 +1031,10 @@ const ApplicationsListPage = () => {
               </Typography>
             </div>
           ) : (
-            <div className="overflow-x-auto">
+            <div>
               <table className="w-full table-auto">
                 <thead>
-                  <tr className="bg-gray-50 dark:bg-black">
+                  <tr className="bg-gray-50 dark:bg-gray-800">
                     <th
                       className="border-b border-blue-gray-100 dark:border-gray-800 py-3 px-4 text-left cursor-pointer"
                       onClick={() => handleSort("id")}
@@ -1111,8 +1111,8 @@ const ApplicationsListPage = () => {
                       key={row.id}
                       className={`${
                         index % 2 === 0
-                          ? "bg-white dark:bg-black"
-                          : "bg-gray-50 dark:bg-black/50"
+                        ? "bg-white dark:bg-gray-800"
+                        : "bg-gray-50 dark:bg-gray-800/50"
                       } hover:bg-blue-gray-50 dark:hover:bg-gray-800/70 transition-colors`}
                     >
                       <td className="py-3 px-4 border-b border-blue-gray-50 dark:border-gray-800">

@@ -363,13 +363,13 @@ export function Home() {
       {/* Orta qrafiklər */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
         {/* Ödəniş dinamikası */}
-        <Card className="border border-red-600 dark:border-red-600 shadow-lg dark:bg-black h-full flex flex-col rounded-xl">
-          <CardHeader className="bg-black dark:bg-black px-4 sm:px-6 lg:px-8 pt-6 sm:pt-8 pb-5 sm:pb-6 border border-red-600">
+        <Card className="border border-red-600 dark:border-gray-700 shadow-lg dark:bg-gray-800 h-full flex flex-col rounded-xl">
+          <CardHeader className="bg-black dark:bg-gray-800 px-4 sm:px-6 lg:px-8 pt-6 sm:pt-8 pb-5 sm:pb-6 border border-red-600 dark:border-gray-700">
             <Typography variant="h6" className="text-white font-bold text-base sm:text-lg mb-0">
               {t("dashboard.charts.paymentDynamics")}
             </Typography>
           </CardHeader>
-          <CardBody className="dark:bg-black px-4 sm:px-6 lg:px-8 pb-4 sm:pb-6 lg:pb-8 pt-0 flex-1">
+          <CardBody className="dark:bg-gray-800 px-4 sm:px-6 lg:px-8 pb-4 sm:pb-6 lg:pb-8 pt-0 flex-1">
             <Chart
               options={paymentChartOptions}
               series={paymentChartSeries}
@@ -380,8 +380,8 @@ export function Home() {
         </Card>
 
         {/* Əməkdaş performansı */}
-        <Card className="border border-red-600 dark:border-red-600 shadow-lg dark:bg-black h-full flex flex-col rounded-xl">
-          <CardHeader className="bg-black dark:bg-black px-4 sm:px-6 lg:px-8 pt-6 sm:pt-8 pb-5 sm:pb-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border border-red-600">
+        <Card className="border border-red-600 dark:border-gray-700 shadow-lg dark:bg-gray-800 h-full flex flex-col rounded-xl">
+          <CardHeader className="bg-black  dark:bg-gray-800 px-4 sm:px-6 lg:px-8 pt-6 sm:pt-8 pb-5 sm:pb-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border dark:border-gray-700">
             <Typography variant="h6" className="text-white font-bold text-base sm:text-lg mb-0">
               {t("dashboard.charts.employeePerformance")}
             </Typography>
@@ -396,7 +396,7 @@ export function Home() {
                   <ChevronDownIcon className="h-3 w-3 sm:h-4 sm:w-4" />
                 </Button>
               </MenuHandler>
-              <MenuList className="dark:bg-black dark:border-gray-700">
+              <MenuList className="dark:bg-gray-800 dark:border-gray-700">
                 <MenuItem className="dark:text-gray-300 dark:hover:bg-gray-700">
                   {t("dashboard.charts.allDepartments")}
                 </MenuItem>
@@ -412,7 +412,7 @@ export function Home() {
               </MenuList>
             </Menu>
           </CardHeader>
-          <CardBody className="dark:bg-black px-4 sm:px-6 lg:px-8 pb-4 sm:pb-6 lg:pb-8 pt-0 flex-1">
+          <CardBody className="dark:bg-gray-800 px-4 sm:px-6 lg:px-8 pb-4 sm:pb-6 lg:pb-8 pt-0 flex-1">
             <Chart
               options={employeeChartOptions}
               series={employeeChartSeries}
@@ -426,13 +426,13 @@ export function Home() {
       {/* Aşağı qrafiklər */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
         {/* Müraciətlərin statusu - Pie Chart */}
-        <Card className="border border-red-600 dark:border-red-600 shadow-lg dark:bg-black flex flex-col rounded-xl " style={{ minHeight: "fit-content" }}>
-          <CardHeader className="bg-black dark:bg-black px-4 sm:px-6 lg:px-8 pt-6 sm:pt-8 pb-5 sm:pb-6 flex-shrink-0 border border-red-600">
+        <Card className="border border-red-600 dark:border-gray-700 shadow-lg dark:bg-gray-800 flex flex-col rounded-xl " style={{ minHeight: "fit-content" }}>
+          <CardHeader className="bg-black dark:bg-gray-800 px-4 sm:px-6 lg:px-8 pt-6 sm:pt-8 pb-5 sm:pb-6 flex-shrink-0 border dark:border-gray-700">
             <Typography variant="h6" className="text-white font-bold text-base sm:text-lg mb-0">
               {t("dashboard.charts.applicationStatus")}
             </Typography>
           </CardHeader>
-          <CardBody className="dark:bg-black px-2 sm:px-4 lg:px-8 pb-4 sm:pb-6 lg:pb-8 pt-4 sm:pt-6 flex items-center justify-center overflow-visible">
+          <CardBody className="dark:bg-gray-800 px-2 sm:px-4 lg:px-8 pb-4 sm:pb-6 lg:pb-8 pt-4 sm:pt-6 flex items-center justify-center overflow-visible">
             <div className="w-full flex items-center justify-center" style={{ 
               maxWidth: "100%", 
               minHeight: `${getPieChartHeight()}px`,
@@ -450,19 +450,19 @@ export function Home() {
         </Card>
 
         {/* Şöbə statistikaları */}
-        <Card className="border border-red-600 dark:border-red-600 shadow-lg dark:bg-black h-full flex flex-col rounded-xl">
-          <CardHeader className="bg-black dark:bg-black px-4 sm:px-6 lg:px-8 pt-6 sm:pt-8 pb-5 sm:pb-6 border border-red-600">
+        <Card className="border border-red-600 dark:border-gray-700 shadow-lg dark:bg-gray-800 h-full flex flex-col rounded-xl">
+          <CardHeader className="bg-black dark:bg-gray-800 px-4 sm:px-6 lg:px-8 pt-6 sm:pt-8 pb-5 sm:pb-6 border border-red-600 dark:border-gray-700">
             <Typography variant="h6" className="text-white font-bold text-base sm:text-lg mb-0">
               {t("dashboard.charts.departmentStats")}
             </Typography>
           </CardHeader>
-          <CardBody className="dark:bg-black px-4 sm:px-6 lg:px-8 pb-4 sm:pb-6 lg:pb-8 pt-4 sm:pt-6 flex-1">
+          <CardBody className="dark:bg-gray-800 px-4 sm:px-6 lg:px-8 pb-4 sm:pb-6 lg:pb-8 pt-4 sm:pt-6 flex-1">
             {/* Kiçik statistik kartlar - responsive grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 lg:gap-6 mb-5 sm:mb-6 lg:mb-8">
               {departmentStats.slice(0, 4).map((dept, index) => (
                 <div
                   key={index}
-                  className="bg-white dark:bg-black p-3 sm:p-4 lg:p-5 rounded-xl border border-gray-200 dark:border-red-600 h-full flex flex-col shadow-sm"
+                  className="bg-white dark:bg-gray-800 p-3 sm:p-4 lg:p-5 rounded-xl border border-gray-200 dark:border-gray-700 h-full flex flex-col shadow-sm"
                 >
                   <Typography
                     variant="small"
@@ -501,7 +501,7 @@ export function Home() {
             </div>
             {/* 5-ci kart - full width */}
             {departmentStats[4] && (
-              <div className="bg-white dark:bg-black p-3 sm:p-4 lg:p-5 rounded-xl border border-gray-200 dark:border-red-600 mb-5 sm:mb-6 lg:mb-8 shadow-sm">
+              <div className="bg-white dark:bg-gray-800 p-3 sm:p-4 lg:p-5 rounded-xl border border-gray-200 dark:border-gray-700 mb-5 sm:mb-6 lg:mb-8 shadow-sm">
                 <div className="flex items-center justify-between mb-3">
                   <Typography
                     variant="small"
@@ -569,7 +569,7 @@ export function Home() {
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
             className="cursor-pointer"
           >
-            <Card className="border border-red-600 dark:border-red-600 shadow-lg dark:bg-black text-center p-3 sm:p-4 lg:p-6 h-full flex flex-col items-center justify-center min-h-[140px] sm:min-h-[160px] lg:min-h-[180px] rounded-xl">
+            <Card className="border border-red-600 dark:border-gray-700 shadow-lg dark:bg-gray-800 text-center p-3 sm:p-4 lg:p-6 h-full flex flex-col items-center justify-center min-h-[140px] sm:min-h-[160px] lg:min-h-[180px] rounded-xl">
               <div className="mb-2 sm:mb-3 lg:mb-4 flex justify-center">
                 {React.createElement(stat.icon, { className: "w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-red-600 dark:text-red-400" })}
               </div>

@@ -1389,6 +1389,11 @@
       "edit": "Edit",
       "delete": "Delete"
     },
+    "sort": {
+      "ascending": "Bottom to top",
+      "descending": "Top to bottom"
+    },
+    "empty": "Empty",
     "filter": {
       "title": "Apartment filter",
       "apartment": "Apartment",
@@ -1443,6 +1448,8 @@
       "phone": "Phone",
       "email": "Email",
       "apartment": "Apartment",
+      "type": "Type",
+      "finOrVoen": "FIN / VOEN",
       "status": "Status",
       "actions": "Actions"
     },
@@ -1500,6 +1507,40 @@
     "pagination": {
       "prev": "Previous",
       "next": "Next"
+    },
+    "detail": {
+      "title": "Resident Information",
+      "fullName": "Full Name",
+      "type": "Type",
+      "physicalPerson": "Physical Person",
+      "legalEntity": "Legal Entity",
+      "physicalPersonInfo": "Physical Person Information",
+      "legalEntityInfo": "Legal Entity Information",
+      "fin": "FIN",
+      "voen": "VOEN",
+      "birthDate": "Birth Date",
+      "gender": "Gender",
+      "registrationDate": "Registration Date",
+      "contactInfo": "Contact Information",
+      "phone": "Phone",
+      "email": "Email",
+      "emergencyContact": "Emergency Contact",
+      "apartmentInfo": "Apartment Information",
+      "apartment": "Apartment",
+      "block": "Block",
+      "floor": "Floor",
+      "addressInfo": "Address Information",
+      "address": "Address",
+      "registrationAddress": "Registration Address",
+      "financialInfo": "Financial Information",
+      "balance": "Balance",
+      "paymentMethod": "Payment Method",
+      "otherInfo": "Other Information",
+      "status": "Status",
+      "joinDate": "Join Date",
+      "notes": "Notes",
+      "close": "Close",
+      "edit": "Edit"
     }
   },
   "serviceFee": {

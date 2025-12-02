@@ -78,14 +78,14 @@ const Profile = () => {
   return (
     <div className="">
       {/* Section title bar to match Home design */}
-      <div className="w-full bg-black dark:bg-black my-4 p-4 rounded-lg shadow-lg mb-6 border border-red-600 dark:border-red-600">
+      <div className="w-full bg-black dark:bg-gray-800 my-4 p-4 rounded-lg shadow-lg mb-6 border border-red-600 dark:border-gray-700">
         <h3 className="text-white font-bold">{t("profile.pageTitle")}</h3>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Left Panel - User Information */}
-        <Card className="border border-red-600 dark:border-red-600 shadow-sm dark:bg-black">
-          <CardBody className="p-6 dark:bg-black">
+        <Card className="border border-red-600 dark:border-gray-700 shadow-sm dark:bg-gray-800">
+          <CardBody className="p-6 dark:bg-gray-800">
             <div className="flex flex-col items-center">
               <div className="relative mb-4">
                 <div className="w-24 h-24 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-purple-600 dark:text-purple-300 text-2xl font-bold">
@@ -125,10 +125,10 @@ const Profile = () => {
 
         {/* Right Panel - Personal Information Editing */}
         <div className="lg:col-span-2">
-          <Card className="border border-red-600 dark:border-red-600 shadow-sm dark:bg-black">
-            <CardBody className="p-6 dark:bg-black">
+          <Card className="border border-red-600 dark:border-gray-700 shadow-sm dark:bg-gray-800">
+            <CardBody className="p-6 dark:bg-gray-800">
               <Tabs value={activeTab} className="overflow-visible">
-                <TabsHeader className="rounded-none border-b border-red-600 dark:border-red-600 bg-transparent p-0">
+                <TabsHeader className="rounded-none border-b border-red-600 dark:border-gray-700 bg-transparent p-0">
                   <Tab
                     value="personal"
                     onClick={() => setActiveTab("personal")}

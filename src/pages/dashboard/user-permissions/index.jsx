@@ -309,7 +309,7 @@ const UserPermissionsPage = () => {
   return (
     <div className="h-full flex flex-col">
       {/* Section title bar */}
-      <div className="w-full bg-black dark:bg-black my-2 sm:my-3 lg:my-4 p-3 sm:p-4 rounded-lg shadow-lg mb-3 sm:mb-4 lg:mb-5 border border-red-600 dark:border-red-600 flex-shrink-0">
+      <div className="w-full bg-black dark:bg-gray-800 my-2 sm:my-3 lg:my-4 p-3 sm:p-4 rounded-lg shadow-lg mb-3 sm:mb-4 lg:mb-5 border border-red-600 dark:border-gray-700 flex-shrink-0">
         <div className="flex flex-col gap-3 sm:gap-4">
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
@@ -401,12 +401,12 @@ const UserPermissionsPage = () => {
           </Typography>
         </div>
       ) : (
-        <Card className="border border-red-600 dark:border-red-600 shadow-lg dark:bg-black flex flex-col flex-1 min-h-0">
+        <Card className="border border-red-600 dark:border-gray-700 shadow-lg dark:bg-gray-800 flex flex-col flex-1 min-h-0">
           <CardHeader
             floated={false}
             shadow={false}
             color="transparent"
-            className="m-0 p-3 sm:p-4 dark:bg-black border-b border-gray-200 dark:border-gray-700 flex-shrink-0"
+            className="m-0 p-3 sm:p-4 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 flex-shrink-0"
           >
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0">
               <Typography variant="h6" color="blue-gray" className="font-bold dark:text-white text-base sm:text-lg">
@@ -417,7 +417,7 @@ const UserPermissionsPage = () => {
               </Typography>
             </div>
           </CardHeader>
-          <CardBody className="p-4 sm:p-6 dark:bg-black flex-1 min-h-0 overflow-y-auto">
+          <CardBody className="p-4 sm:p-6 dark:bg-gray-800 flex-1 min-h-0">
             <div className="space-y-5 sm:space-y-6">
               {Object.entries(searchTerm ? filteredPermissions : permissions).map(([category, subCategories]) => {
                 const allSubCategories = Object.values(subCategories);

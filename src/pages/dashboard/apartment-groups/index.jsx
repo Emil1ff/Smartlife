@@ -107,16 +107,16 @@ const ApartmentGroupsPage = () => {
   return (
     <div className=" ">
       {/* Section title bar to match Home design */}
-      <div className="w-full bg-black dark:bg-black my-4 p-4 rounded-lg shadow-lg mb-6 border border-red-600 dark:border-red-600">
+      <div className="w-full bg-black dark:bg-gray-800 my-4 p-4 rounded-lg shadow-lg mb-6 border border-red-600 dark:border-gray-700">
         <h3 className="text-white font-bold">
           {t("apartmentGroups.pageTitle")}
         </h3>
       </div>
 
       {/* Filter modal */}
-      <Dialog open={filterOpen} handler={setFilterOpen} size="sm" className="dark:bg-black">
-        <DialogHeader className="dark:bg-black dark:text-white">{t("buttons.filter")}</DialogHeader>
-        <DialogBody divider className="space-y-4 dark:bg-black dark:border-gray-800">
+      <Dialog open={filterOpen} handler={setFilterOpen} size="sm" className="dark:bg-gray-900">
+        <DialogHeader className="dark:bg-gray-800 dark:text-white">{t("buttons.filter")}</DialogHeader>
+        <DialogBody divider className="space-y-4 dark:bg-gray-800 dark:border-gray-700">
           <div>
             <Typography variant="small" color="blue-gray" className="mb-1 dark:text-gray-300">
               {t("apartmentGroups.filters.complex")}
@@ -142,7 +142,7 @@ const ApartmentGroupsPage = () => {
             />
           </div>
         </DialogBody>
-        <DialogFooter className="flex justify-between gap-2 dark:bg-black dark:border-gray-800">
+        <DialogFooter className="flex justify-between gap-2 dark:bg-gray-800 dark:border-gray-700">
           <Button variant="text" color="blue-gray" onClick={handleFilterClear} className="dark:text-gray-300 dark:hover:bg-gray-700">
             {t("buttons.clear")}
           </Button>
@@ -158,9 +158,9 @@ const ApartmentGroupsPage = () => {
       </Dialog>
 
       {/* Create group modal */}
-      <Dialog open={createOpen} handler={setCreateOpen} size="sm" className="dark:bg-black">
-        <DialogHeader className="dark:bg-black dark:text-white">{t("apartmentGroups.create.title")}</DialogHeader>
-        <DialogBody divider className="space-y-4 dark:bg-black dark:border-gray-800">
+      <Dialog open={createOpen} handler={setCreateOpen} size="sm" className="dark:bg-gray-900">
+        <DialogHeader className="dark:bg-gray-800 dark:text-white">{t("apartmentGroups.create.title")}</DialogHeader>
+        <DialogBody divider className="space-y-4 dark:bg-gray-800 dark:border-gray-700">
           <div>
             <Typography variant="small" color="blue-gray" className="mb-1 dark:text-gray-300">
               {t("apartmentGroups.labels.groupName")}
@@ -241,7 +241,7 @@ const ApartmentGroupsPage = () => {
             </div>
           </div>
         </DialogBody>
-        <DialogFooter className="flex justify-end gap-2 dark:bg-black dark:border-gray-800">
+        <DialogFooter className="flex justify-end gap-2 dark:bg-gray-800 dark:border-gray-700">
           <Button variant="outlined" color="blue-gray" onClick={() => setCreateOpen(false)} className="dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-700">
             {t("buttons.cancel")}
           </Button>
@@ -252,9 +252,9 @@ const ApartmentGroupsPage = () => {
       </Dialog>
 
       {/* Edit group modal */}
-      <Dialog open={editOpen} handler={setEditOpen} size="sm" className="dark:bg-black">
-        <DialogHeader className="dark:bg-black dark:text-white">{t("apartmentGroups.edit.title")}</DialogHeader>
-        <DialogBody divider className="space-y-4 dark:bg-black dark:border-gray-800">
+      <Dialog open={editOpen} handler={setEditOpen} size="sm" className="dark:bg-gray-900">
+        <DialogHeader className="dark:bg-gray-800 dark:text-white">{t("apartmentGroups.edit.title")}</DialogHeader>
+        <DialogBody divider className="space-y-4 dark:bg-gray-800 dark:border-gray-700">
           <div>
             <Typography variant="small" color="blue-gray" className="mb-1 dark:text-gray-300">
               {t("apartmentGroups.labels.groupName")}
@@ -335,7 +335,7 @@ const ApartmentGroupsPage = () => {
             </div>
           </div>
         </DialogBody>
-        <DialogFooter className="flex justify-end gap-2 dark:bg-black dark:border-gray-800">
+        <DialogFooter className="flex justify-end gap-2 dark:bg-gray-800 dark:border-gray-700">
           <Button variant="outlined" color="blue-gray" onClick={() => setEditOpen(false)} className="dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-700">
             {t("buttons.cancel")}
           </Button>
@@ -346,8 +346,8 @@ const ApartmentGroupsPage = () => {
       </Dialog>
 
       <div className="mb-4 grid gap-4 md:grid-cols-3">
-        <Card className="border border-red-600 dark:border-red-600 shadow-sm md:col-span-2 dark:bg-black">
-          <CardBody className="flex flex-wrap gap-4 items-end dark:bg-black">
+        <Card className="border border-red-600 dark:border-gray-700 shadow-sm md:col-span-2 dark:bg-gray-800">
+          <CardBody className="flex flex-wrap gap-4 items-end dark:bg-gray-800">
             <div className="w-full ">
               <Typography
                 variant="small"
@@ -388,8 +388,8 @@ const ApartmentGroupsPage = () => {
           </CardBody>
         </Card>
 
-        <Card className="border border-red-600 dark:border-red-600 shadow-sm dark:bg-black">
-          <CardBody className="space-y-2 dark:bg-black">
+        <Card className="border border-red-600 dark:border-gray-700 shadow-sm dark:bg-gray-800">
+          <CardBody className="space-y-2 dark:bg-gray-800">
             <Typography variant="small" color="blue-gray" className="font-semibold dark:text-white">
               {t("apartmentGroups.summary.title")}
             </Typography>
@@ -413,13 +413,13 @@ const ApartmentGroupsPage = () => {
           return (
             <Card
               key={group.id}
-              className="border border-red-600 dark:border-red-600 shadow-sm flex flex-col justify-between dark:bg-black"
+              className="border border-red-600 dark:border-gray-700 shadow-sm flex flex-col justify-between dark:bg-gray-800"
             >
               <CardHeader
                 floated={false}
                 shadow={false}
                 color="transparent"
-                className="p-4 pb-2 flex items-start justify-between dark:bg-black"
+                className="p-4 pb-2 flex items-start justify-between dark:bg-gray-800"
               >
                 <div>
                   <Typography
@@ -440,7 +440,7 @@ const ApartmentGroupsPage = () => {
                   className="dark:bg-opacity-80"
                 />
               </CardHeader>
-              <CardBody className="p-4 pt-0 space-y-2 dark:bg-black">
+              <CardBody className="p-4 pt-0 space-y-2 dark:bg-gray-800">
                 <div className="space-y-1">
                   <Typography
                     variant="small"

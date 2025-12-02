@@ -206,7 +206,7 @@ const ApplicationsEvaluationPage = () => {
   return (
     <div className="">
       {/* Section title bar */}
-      <div className="w-full bg-black dark:bg-black my-4 p-4 rounded-lg shadow-lg mb-6 border border-red-600 dark:border-red-600">
+      <div className="w-full bg-black dark:bg-gray-800 my-4 p-4 rounded-lg shadow-lg mb-6 border border-red-600 dark:border-gray-700">
         <div className="flex items-center justify-between">
           <Typography variant="h5" className="text-white font-bold">
             {t("applications.evaluation.pageTitle")}
@@ -224,9 +224,9 @@ const ApplicationsEvaluationPage = () => {
       </div>
 
       {/* Search Modal */}
-      <Dialog open={searchOpen} handler={setSearchOpen} size="md" className="dark:bg-black border border-red-600 dark:border-red-600">
+      <Dialog open={searchOpen} handler={setSearchOpen} size="md" className="dark:bg-gray-800 border border-red-600 dark:border-gray-700">
         <DialogHeader className="dark:text-white">{t("applications.evaluation.searchModal.title")}</DialogHeader>
-        <DialogBody divider className="space-y-4 dark:bg-black">
+        <DialogBody divider className="space-y-4 dark:bg-gray-800">
           <div>
             <Typography variant="small" color="blue-gray" className="mb-1 dark:text-gray-300">
               {t("applications.evaluation.searchModal.searchText")}
@@ -329,7 +329,7 @@ const ApplicationsEvaluationPage = () => {
             </div>
           </div>
         </DialogBody>
-        <DialogFooter className="flex justify-between gap-2 dark:bg-black">
+        <DialogFooter className="flex justify-between gap-2 dark:bg-gray-800">
           <Button variant="text" color="blue-gray" onClick={handleSearchClear} className="dark:text-gray-300 dark:hover:bg-gray-700">
             {t("buttons.clear")}
           </Button>
@@ -346,9 +346,9 @@ const ApplicationsEvaluationPage = () => {
 
       {/* Details Modal */}
       {selectedEvaluation && (
-        <Dialog open={detailsOpen} handler={handleDetailsClose} size="xl" className="dark:bg-black border border-red-600 dark:border-red-600">
+        <Dialog open={detailsOpen} handler={handleDetailsClose} size="xl" className="dark:bg-gray-800 border border-red-600 dark:border-gray-700">
           <DialogHeader className="dark:text-white">{t("applications.evaluation.detailsModal.title")}</DialogHeader>
-          <DialogBody divider className="space-y-6 dark:bg-black max-h-[70vh] overflow-y-auto">
+          <DialogBody divider className="space-y-6 dark:bg-gray-800">
             {/* Evaluation ID */}
             <div className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-900 rounded-lg">
               <Typography variant="small" color="blue-gray" className="font-semibold dark:text-gray-300">
@@ -435,7 +435,7 @@ const ApplicationsEvaluationPage = () => {
               </div>
             </div>
           </DialogBody>
-          <DialogFooter className="flex justify-end gap-2 dark:bg-black">
+          <DialogFooter className="flex justify-end gap-2 dark:bg-gray-800">
             <Button variant="outlined" color="blue-gray" onClick={handleDetailsClose} className="dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-700">
               {t("buttons.cancel")}
             </Button>
@@ -444,8 +444,8 @@ const ApplicationsEvaluationPage = () => {
       )}
 
       {/* Evaluation Table */}
-      <Card className="border border-red-600 dark:border-red-600 shadow-sm dark:bg-black ">
-        <CardBody className="p-0 dark:bg-black">
+      <Card className="border border-red-600 dark:border-gray-700 shadow-sm dark:bg-gray-800 ">
+        <CardBody className="p-0 dark:bg-gray-800">
           {loading ? (
             <div className="flex flex-col items-center justify-center py-10">
               <Spinner className="h-6 w-6" />
@@ -454,10 +454,10 @@ const ApplicationsEvaluationPage = () => {
               </Typography>
             </div>
           ) : (
-            <div className="overflow-x-auto">
+            <div>
               <table className="w-full table-auto">
                 <thead>
-                  <tr className="bg-gray-50 dark:bg-black">
+                  <tr className="bg-gray-50 dark:bg-gray-800">
                     <th
                       className="border-b border-blue-gray-100 dark:border-gray-800 py-3 px-4 text-left cursor-pointer"
                       onClick={() => handleSort("id")}
@@ -524,8 +524,8 @@ const ApplicationsEvaluationPage = () => {
                       key={row.id}
                       className={`${
                         index % 2 === 0
-                          ? "bg-white dark:bg-black"
-                          : "bg-gray-50 dark:bg-black/50"
+                          ? "bg-white dark:bg-gray-800"
+                          : "bg-gray-50 dark:bg-gray-800/50"
                       } hover:bg-blue-gray-50 dark:hover:bg-gray-800/70 transition-colors`}
                     >
                       <td className="py-3 px-4 border-b border-blue-gray-50 dark:border-gray-800">

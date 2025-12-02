@@ -42,8 +42,8 @@ export function Sidenav({ brandImg, brandName, routes }) {
   }, [location.pathname, routes]);
 
   const sidenavTypes = {
-    dark: "bg-gradient-to-br from-gray-800 to-gray-900 dark:from-black dark:to-black",
-    white: "bg-white shadow-sm dark:bg-black dark:border-gray-800",
+    dark: "bg-gradient-to-br from-gray-800 to-gray-900 dark:from-gray-900 dark:to-gray-900",
+    white: "bg-white shadow-sm dark:bg-gray-900 dark:border-gray-700",
     transparent: "bg-transparent",
   };
 
@@ -51,7 +51,7 @@ export function Sidenav({ brandImg, brandName, routes }) {
     <aside
       className={`${sidenavTypes[sidenavType]} ${
         openSidenav ? "translate-x-0" : "-translate-x-80"
-      } fixed inset-0 z-50 my-4 ml-4 h-[calc(100vh-32px)] w-72 rounded-xl transition-transform duration-300 xl:translate-x-0 border border-red-600 dark:border-red-600 shadow-sm flex flex-col overflow-hidden`}
+      } fixed inset-0 z-50 my-4 ml-4 h-[calc(100vh-32px)] w-72 rounded-xl transition-transform duration-300 xl:translate-x-0 border border-red-600 dark:border-gray-700 shadow-sm flex flex-col`}
     >
       {/* Fixed Header */}
       <div className="relative flex-shrink-0">
@@ -78,8 +78,8 @@ export function Sidenav({ brandImg, brandName, routes }) {
           />
         </IconButton>
       </div>
-      {/* Scrollable Menu List */}
-      <div className="flex-1 overflow-y-auto overflow-x-hidden m-4 scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-transparent hover:scrollbar-thumb-gray-500 dark:scrollbar-thumb-gray-600 dark:hover:scrollbar-thumb-gray-500">
+      {/* Menu List */}
+      <div className="flex-1 m-4 overflow-y-auto overflow-x-hidden custom-sidenav-scrollbar">
         {routes.map(({ layout, title, pages }, key) => (
           <ul key={key} className="mb-4 flex flex-col gap-1">
             {title && (

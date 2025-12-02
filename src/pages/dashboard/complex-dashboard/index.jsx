@@ -267,12 +267,12 @@ const ComplexDashboardPage = () => {
       </div>
 
       {/* Summary Card */}
-      <Card className="border border-red-600 dark:border-red-600 shadow-sm dark:bg-black mb-6">
+      <Card className="border border-red-600 dark:border-gray-700 shadow-sm dark:bg-gray-800 mb-6">
         <CardHeader
           floated={false}
           shadow={false}
           color="transparent"
-          className="m-0 p-6 dark:bg-black"
+          className="m-0 p-6 dark:bg-gray-800"
         >
           <Typography variant="h6" color="blue-gray" className="mb-1 dark:text-white">
             {t("complexDashboard.summary.title")}
@@ -284,7 +284,7 @@ const ComplexDashboardPage = () => {
             {t("complexDashboard.summary.subtitle")}
           </Typography>
         </CardHeader>
-        <CardBody className="px-6 pb-6 dark:bg-black">
+        <CardBody className="px-6 pb-6 dark:bg-gray-800">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
               <Typography variant="small" className="text-blue-gray-600 dark:text-gray-400 mb-1">
@@ -323,12 +323,12 @@ const ComplexDashboardPage = () => {
       </Card>
 
       {/* Recent Activities Table */}
-      <Card className="border border-red-600 dark:border-red-600 shadow-sm dark:bg-black">
+      <Card className="border border-red-600 dark:border-gray-700 shadow-sm dark:bg-gray-800">
         <CardHeader
           floated={false}
           shadow={false}
           color="transparent"
-          className="m-0 p-6 dark:bg-black"
+          className="m-0 p-6 dark:bg-gray-800"
         >
           <Typography variant="h6" color="blue-gray" className="mb-1 dark:text-white">
             {t("complexDashboard.recentActivities.title")}
@@ -340,8 +340,8 @@ const ComplexDashboardPage = () => {
             {t("complexDashboard.recentActivities.subtitle")}
           </Typography>
         </CardHeader>
-        <CardBody className="px-0 pb-2 dark:bg-black">
-          <div className="overflow-x-auto">
+        <CardBody className="px-0 pb-2 dark:bg-gray-800">
+          <div>
             <table className="w-full min-w-max table-auto text-left">
               <thead>
                 <tr>
@@ -378,9 +378,9 @@ const ComplexDashboardPage = () => {
                     key={row.id}
                     className={`${
                       index % 2 === 0
-                        ? "bg-white dark:bg-black"
-                        : "bg-gray-50 dark:bg-black/50"
-                    } hover:bg-blue-gray-50 dark:hover:bg-gray-800/70 transition-colors`}
+                        ? "bg-white dark:bg-gray-800"
+                        : "bg-gray-50 dark:bg-gray-800/50"
+                    } hover:bg-blue-gray-50 dark:hover:bg-gray-700 transition-colors`}
                   >
                     <td className="py-3 px-4 border-b border-blue-gray-50 dark:border-gray-800">
                       <Chip

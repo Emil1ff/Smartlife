@@ -142,13 +142,13 @@ const InvoicesPage = () => {
   return (
     <div className="">
       {/* Section title bar to match Home design */}
-      <div className="w-full bg-black dark:bg-black my-4 p-4 rounded-lg shadow-lg mb-6 border border-red-600 dark:border-red-600" >
+      <div className="w-full bg-black dark:bg-gray-800 my-4 p-4 rounded-lg shadow-lg mb-6 border border-red-600 dark:border-gray-700" >
         <h3 className="text-white font-bold">{t("invoices.pageTitle")}</h3>
       </div>
 
       {/* Summary cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-        <Card className="border border-red-600 dark:border-red-600 shadow-sm dark:bg-black ">
+        <Card className="border border-red-600 dark:border-gray-700 shadow-sm dark:bg-gray-800 ">
           <CardBody className="p-4">
             <Typography variant="small" color="blue-gray" className="mb-1 dark:text-gray-300">
               {t("invoices.summary.paid")}
@@ -158,7 +158,7 @@ const InvoicesPage = () => {
             </Typography>
           </CardBody>
         </Card>
-        <Card className="border border-red-600 dark:border-red-600 shadow-sm dark:bg-black ">
+        <Card className="border border-red-600 dark:border-gray-700 shadow-sm dark:bg-gray-800 ">
           <CardBody className="p-4">
             <Typography variant="small" color="blue-gray" className="mb-1 dark:text-gray-300">
               {t("invoices.summary.consumption")}
@@ -171,9 +171,9 @@ const InvoicesPage = () => {
       </div>
 
       {/* Filter modal */}
-      <Dialog open={filterOpen} handler={setFilterOpen} size="sm" className="dark:bg-black border border-red-600 dark:border-red-600">
+      <Dialog open={filterOpen} handler={setFilterOpen} size="sm" className="dark:bg-gray-800 border border-red-600 dark:border-gray-700">
         <DialogHeader className="dark:text-white">{t("invoices.filter.title")}</DialogHeader>
-        <DialogBody divider className="space-y-4 dark:bg-black ">
+        <DialogBody divider className="space-y-4 dark:bg-gray-800 ">
           <div>
             <Typography variant="small" color="blue-gray" className="mb-1 dark:text-gray-300">
               {t("invoices.filter.serviceName")}
@@ -211,7 +211,7 @@ const InvoicesPage = () => {
             />
           </div>
         </DialogBody>
-        <DialogFooter className="flex justify-between gap-2 dark:bg-black ">
+        <DialogFooter className="flex justify-between gap-2 dark:bg-gray-800 ">
           <Button variant="text" color="blue-gray" onClick={handleFilterClear} className="dark:text-gray-300 dark:hover:bg-gray-700">
             {t("buttons.clear")}
           </Button>
@@ -227,13 +227,13 @@ const InvoicesPage = () => {
       </Dialog>
 
       {/* Create invoice modal */}
-      <Dialog open={createOpen} handler={setCreateOpen} size="md" className="dark:bg-black border border-red-600 dark:border-red-600">
+      <Dialog open={createOpen} handler={setCreateOpen} size="md" className="dark:bg-gray-800 border border-red-600 dark:border-gray-700">
         <DialogHeader className="dark:text-white border-b border-gray-200 dark:border-gray-700 pb-3">
           <Typography variant="h5" className="font-bold">
             {t("invoices.create.title")}
           </Typography>
         </DialogHeader>
-        <DialogBody divider className="space-y-4 dark:bg-black py-4">
+        <DialogBody divider className="space-y-4 dark:bg-gray-800 py-4">
           <div>
             <Typography variant="small" color="blue-gray" className="mb-1 dark:text-gray-300">
               {t("invoices.create.serviceName")}
@@ -245,7 +245,7 @@ const InvoicesPage = () => {
             />
           </div>
         </DialogBody>
-        <DialogFooter className="flex justify-end gap-2 dark:bg-black border-t border-gray-200 dark:border-gray-700 pt-3">
+        <DialogFooter className="flex justify-end gap-2 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 pt-3">
           <Button variant="outlined" color="blue-gray" onClick={() => setCreateOpen(false)} className="dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-700">
             {t("buttons.cancel")}
           </Button>
@@ -256,13 +256,13 @@ const InvoicesPage = () => {
       </Dialog>
 
       {/* View invoice modal */}
-      <Dialog open={viewOpen} handler={setViewOpen} size="lg" className="dark:bg-black border border-red-600 dark:border-red-600">
+      <Dialog open={viewOpen} handler={setViewOpen} size="lg" className="dark:bg-gray-800 border border-red-600 dark:border-gray-700">
         <DialogHeader className="dark:text-white border-b border-gray-200 dark:border-gray-700 pb-3">
           <Typography variant="h5" className="font-bold">
             {t("invoices.view.title")}
           </Typography>
         </DialogHeader>
-        <DialogBody divider className="space-y-4 dark:bg-black py-4">
+        <DialogBody divider className="space-y-4 dark:bg-gray-800 py-4">
           {selectedItem && (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
@@ -369,7 +369,7 @@ const InvoicesPage = () => {
             </div>
           )}
         </DialogBody>
-        <DialogFooter className="flex justify-end gap-2 dark:bg-black border-t border-gray-200 dark:border-gray-700 pt-3">
+        <DialogFooter className="flex justify-end gap-2 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 pt-3">
           <Button variant="outlined" color="blue-gray" onClick={() => setViewOpen(false)} className="dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-700">
             {t("buttons.close")}
           </Button>
@@ -377,13 +377,13 @@ const InvoicesPage = () => {
       </Dialog>
 
       {/* Edit invoice modal */}
-      <Dialog open={editOpen} handler={setEditOpen} size="md" className="dark:bg-black border border-red-600 dark:border-red-600">
+      <Dialog open={editOpen} handler={setEditOpen} size="md" className="dark:bg-gray-800 border border-red-600 dark:border-gray-700">
         <DialogHeader className="dark:text-white border-b border-gray-200 dark:border-gray-700 pb-3">
           <Typography variant="h5" className="font-bold">
             {t("invoices.edit.title")}
           </Typography>
         </DialogHeader>
-        <DialogBody divider className="space-y-4 dark:bg-black py-4">
+        <DialogBody divider className="space-y-4 dark:bg-gray-800 py-4">
           {selectedItem && (
             <>
               <div>
@@ -423,7 +423,7 @@ const InvoicesPage = () => {
             </>
           )}
         </DialogBody>
-        <DialogFooter className="flex justify-end gap-2 dark:bg-black border-t border-gray-200 dark:border-gray-700 pt-3">
+        <DialogFooter className="flex justify-end gap-2 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 pt-3">
           <Button variant="outlined" color="blue-gray" onClick={() => setEditOpen(false)} className="dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-700">
             {t("buttons.cancel")}
           </Button>
@@ -434,20 +434,20 @@ const InvoicesPage = () => {
       </Dialog>
 
       {/* Delete invoice modal */}
-      <Dialog open={deleteOpen} handler={setDeleteOpen} size="sm" className="dark:bg-black border border-red-600 dark:border-red-600">
+      <Dialog open={deleteOpen} handler={setDeleteOpen} size="sm" className="dark:bg-gray-800 border border-red-600 dark:border-gray-700">
         <DialogHeader className="dark:text-white border-b border-gray-200 dark:border-gray-700 pb-3">
           <Typography variant="h5" className="font-bold">
             {t("invoices.delete.title")}
           </Typography>
         </DialogHeader>
-        <DialogBody divider className="space-y-4 dark:bg-black py-4">
+        <DialogBody divider className="space-y-4 dark:bg-gray-800 py-4">
           {selectedItem && (
             <Typography variant="small" color="blue-gray" className="dark:text-gray-300">
               {t("invoices.delete.message")} <strong>{selectedItem.serviceName}</strong> (ID: {selectedItem.id})?
             </Typography>
           )}
         </DialogBody>
-        <DialogFooter className="flex justify-end gap-2 dark:bg-black border-t border-gray-200 dark:border-gray-700 pt-3">
+        <DialogFooter className="flex justify-end gap-2 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 pt-3">
           <Button variant="outlined" color="blue-gray" onClick={() => setDeleteOpen(false)} className="dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-700">
             {t("buttons.cancel")}
           </Button>
@@ -457,12 +457,12 @@ const InvoicesPage = () => {
         </DialogFooter>
       </Dialog>
 
-      <Card className="border border-red-600 dark:border-red-600 shadow-sm dark:bg-black ">
+      <Card className="border border-red-600 dark:border-gray-700 shadow-sm dark:bg-gray-800 ">
         <CardHeader
           floated={false}
           shadow={false}
           color="transparent"
-          className="m-0 flex items-center justify-between p-6 dark:bg-black"
+          className="m-0 flex items-center justify-between p-6 dark:bg-gray-800"
         >
           <div className="flex items-center gap-3">
             <Button variant="outlined" color="blue" onClick={() => setFilterOpen(true)} className="dark:border-blue-600 dark:text-blue-400 dark:hover:bg-blue-600/20">
@@ -473,7 +473,7 @@ const InvoicesPage = () => {
             </Button>
           </div>
         </CardHeader>
-        <CardBody className="px-0 pt-0 pb-2 dark:bg-black">
+        <CardBody className="px-0 pt-0 pb-2 dark:bg-gray-800">
           {loading ? (
             <div className="flex flex-col items-center justify-center py-10">
               <Spinner className="h-6 w-6 dark:text-blue-400" />
@@ -484,7 +484,7 @@ const InvoicesPage = () => {
           ) : (
             <>
               {/* Desktop table */}
-              <div className="hidden lg:block overflow-x-auto">
+              <div className="hidden lg:block">
                 <table className="w-full table-auto min-w-[1200px]">
                   <thead>
                     <tr>
@@ -608,7 +608,7 @@ const InvoicesPage = () => {
                                   />
                                 </IconButton>
                               </MenuHandler>
-                              <MenuList className="dark:bg-black dark:border-gray-800">
+                              <MenuList className="dark:bg-gray-800 dark:border-gray-800">
                                 <MenuItem onClick={() => openViewModal(row)} className="dark:text-gray-300 dark:hover:bg-gray-700">
                                   {t("invoices.actions.view")}
                                 </MenuItem>
@@ -631,8 +631,8 @@ const InvoicesPage = () => {
               {/* Tablet & mobile cards */}
               <div className="grid gap-4 sm:grid-cols-2 lg:hidden px-4 pt-4">
                 {pageData.map((row) => (
-                  <Card key={row.id} className="border border-red-600 dark:border-red-600 shadow-sm dark:bg-black dark:border-gray-800">
-                    <CardBody className="space-y-2 dark:bg-black">
+                  <Card key={row.id} className="border border-red-600 dark:border-gray-700 shadow-sm dark:bg-gray-800 dark:border-gray-800">
+                    <CardBody className="space-y-2 dark:bg-gray-800">
                       <div className="flex items-center justify-between">
                         <Typography
                           variant="small"
@@ -647,7 +647,7 @@ const InvoicesPage = () => {
                               <EllipsisVerticalIcon strokeWidth={2} className="h-5 w-5" />
                             </IconButton>
                           </MenuHandler>
-                          <MenuList className="dark:bg-black dark:border-gray-800">
+                          <MenuList className="dark:bg-gray-800 dark:border-gray-800">
                             <MenuItem onClick={() => openViewModal(row)} className="dark:text-gray-300 dark:hover:bg-gray-700">
                               {t("invoices.actions.view")}
                             </MenuItem>

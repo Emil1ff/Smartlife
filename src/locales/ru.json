@@ -1388,6 +1388,11 @@
       "edit": "Редактировать",
       "delete": "Удалить"
     },
+    "sort": {
+      "ascending": "Снизу вверх",
+      "descending": "Сверху вниз"
+    },
+    "empty": "Пусто",
     "filter": {
       "title": "Фильтр квартиры",
       "apartment": "Квартира",
@@ -1442,6 +1447,8 @@
       "phone": "Телефон",
       "email": "Email",
       "apartment": "Квартира",
+      "type": "Тип",
+      "finOrVoen": "ФИН / ВОЕН",
       "status": "Статус",
       "actions": "Действия"
     },
@@ -1499,6 +1506,40 @@
     "pagination": {
       "prev": "Назад",
       "next": "Вперед"
+    },
+    "detail": {
+      "title": "Информация о жителе",
+      "fullName": "ФИО",
+      "type": "Тип",
+      "physicalPerson": "Физическое лицо",
+      "legalEntity": "Юридическое лицо",
+      "physicalPersonInfo": "Информация о физическом лице",
+      "legalEntityInfo": "Информация о юридическом лице",
+      "fin": "ФИН",
+      "voen": "ВОЕН",
+      "birthDate": "Дата рождения",
+      "gender": "Пол",
+      "registrationDate": "Дата регистрации",
+      "contactInfo": "Контактная информация",
+      "phone": "Телефон",
+      "email": "Email",
+      "emergencyContact": "Контакт для экстренных случаев",
+      "apartmentInfo": "Информация о квартире",
+      "apartment": "Квартира",
+      "block": "Блок",
+      "floor": "Этаж",
+      "addressInfo": "Адресная информация",
+      "address": "Адрес",
+      "registrationAddress": "Адрес регистрации",
+      "financialInfo": "Финансовая информация",
+      "balance": "Баланс",
+      "paymentMethod": "Способ оплаты",
+      "otherInfo": "Другая информация",
+      "status": "Статус",
+      "joinDate": "Дата присоединения",
+      "notes": "Заметки",
+      "close": "Закрыть",
+      "edit": "Редактировать"
     }
   },
   "serviceFee": {

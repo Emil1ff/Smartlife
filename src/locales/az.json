@@ -1389,6 +1389,11 @@
       "edit": "Düzəliş et",
       "delete": "Sil"
     },
+    "sort": {
+      "ascending": "Aşağıdan yuxarı",
+      "descending": "Yuxarıdan aşağı"
+    },
+    "empty": "Boş",
     "filter": {
       "title": "Mənzil filter",
       "apartment": "Mənzil",
@@ -1443,6 +1448,8 @@
       "phone": "Telefon",
       "email": "Email",
       "apartment": "Mənzil",
+      "type": "Tip",
+      "finOrVoen": "FIN / VOEN",
       "status": "Status",
       "actions": "Əməliyyatlar"
     },
@@ -1500,6 +1507,40 @@
     "pagination": {
       "prev": "Geri",
       "next": "İrəli"
+    },
+    "detail": {
+      "title": "Sakin məlumatları",
+      "fullName": "Ad Soyad",
+      "type": "Tip",
+      "physicalPerson": "Fiziki şəxs",
+      "legalEntity": "Hüquqi şəxs",
+      "physicalPersonInfo": "Fiziki şəxs məlumatları",
+      "legalEntityInfo": "Hüquqi şəxs məlumatları",
+      "fin": "FIN",
+      "voen": "VOEN",
+      "birthDate": "Doğum tarixi",
+      "gender": "Cins",
+      "registrationDate": "Qeydiyyat tarixi",
+      "contactInfo": "Əlaqə məlumatları",
+      "phone": "Telefon",
+      "email": "Email",
+      "emergencyContact": "Fövqəladə hal üçün əlaqə",
+      "apartmentInfo": "Mənzil məlumatları",
+      "apartment": "Mənzil",
+      "block": "Blok",
+      "floor": "Mərtəbə",
+      "addressInfo": "Ünvan məlumatları",
+      "address": "Ünvan",
+      "registrationAddress": "Qeydiyyat ünvanı",
+      "financialInfo": "Maliyyə məlumatları",
+      "balance": "Balans",
+      "paymentMethod": "Ödəniş üsulu",
+      "otherInfo": "Digər məlumatlar",
+      "status": "Status",
+      "joinDate": "Qoşulma tarixi",
+      "notes": "Qeydlər",
+      "close": "Bağla",
+      "edit": "Düzəliş et"
     }
   },
   "serviceFee": {

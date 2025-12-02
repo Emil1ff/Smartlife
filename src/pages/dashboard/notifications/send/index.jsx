@@ -44,12 +44,12 @@ const SendNotificationPage = () => {
 
   return (
     <div className="mt-12 mb-8">
-      <Card className="border border-red-600 dark:border-red-600 shadow-sm dark:bg-black">
+      <Card className="border border-red-600 dark:border-gray-700 shadow-sm dark:bg-gray-800">
         <CardHeader
           floated={false}
           shadow={false}
           color="transparent"
-          className="m-0 p-6 dark:bg-black"
+          className="m-0 p-6 dark:bg-gray-800"
         >
           <div className="flex items-center gap-2">
             <BellIcon className="h-5 w-5 text-blue-500 dark:text-blue-400" />
@@ -64,7 +64,7 @@ const SendNotificationPage = () => {
             {t("notifications.send.pageSubtitle")}
           </Typography>
         </CardHeader>
-        <CardBody className="px-6 pb-6 dark:bg-black space-y-6">
+        <CardBody className="px-6 pb-6 dark:bg-gray-800 space-y-6">
           {/* Müvafiq xanaları seçin */}
           <div>
             <Typography variant="small" color="blue-gray" className="mb-4 dark:text-gray-300">

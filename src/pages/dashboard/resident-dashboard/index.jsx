@@ -89,7 +89,7 @@ export function ResidentDashboard() {
   return (
     <div className="h-full flex flex-col">
       {/* Section title bar */}
-      <div className="w-full bg-black dark:bg-black my-2 sm:my-3 lg:my-4 p-3 sm:p-4 rounded-lg shadow-lg mb-3 sm:mb-4 lg:mb-5 border border-red-600 dark:border-red-600 flex-shrink-0">
+      <div className="w-full bg-black dark:bg-gray-800 my-2 sm:my-3 lg:my-4 p-3 sm:p-4 rounded-lg shadow-lg mb-3 sm:mb-4 lg:mb-5 border border-red-600 dark:border-gray-700 flex-shrink-0">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div>
             <Typography variant="h5" className="text-white font-bold text-lg sm:text-xl">
@@ -107,10 +107,10 @@ export function ResidentDashboard() {
         {statCards.map((stat, index) => (
           <Card
             key={index}
-            className="border border-red-600 dark:border-red-600 shadow-lg dark:bg-black cursor-pointer hover:shadow-xl transition-shadow"
+            className="border border-red-600 dark:border-gray-700 shadow-lg dark:bg-gray-800 cursor-pointer hover:shadow-xl transition-shadow"
             onClick={stat.onClick}
           >
-            <CardBody className="p-4 sm:p-6 dark:bg-black">
+            <CardBody className="p-4 sm:p-6 dark:bg-gray-800">
               <div className="flex items-center justify-between">
                 <div className="flex-1">
                   <Typography variant="small" className="text-blue-gray-600 dark:text-gray-400 text-xs sm:text-sm mb-2">
@@ -130,18 +130,18 @@ export function ResidentDashboard() {
       </div>
 
       {/* Quick Actions */}
-      <Card className="border border-red-600 dark:border-red-600 shadow-lg dark:bg-black mt-4 sm:mt-6">
+      <Card className="border border-red-600 dark:border-gray-700 shadow-lg dark:bg-gray-800 mt-4 sm:mt-6">
         <CardHeader
           floated={false}
           shadow={false}
           color="transparent"
-          className="m-0 p-3 sm:p-4 dark:bg-black border-b border-gray-200 dark:border-gray-700"
+          className="m-0 p-3 sm:p-4 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700"
         >
           <Typography variant="h6" color="blue-gray" className="font-bold dark:text-white text-base sm:text-lg">
             {t("residentDashboard.quickActions")}
           </Typography>
         </CardHeader>
-        <CardBody className="p-4 sm:p-6 dark:bg-black">
+        <CardBody className="p-4 sm:p-6 dark:bg-gray-800">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
             <Button
               variant="outlined"

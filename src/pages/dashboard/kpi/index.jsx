@@ -177,13 +177,13 @@ const KPIPage = () => {
   return (
     <div className="">
       {/* Section title bar to match Home design */}
-      <div className="w-full bg-black dark:bg-black my-4 p-4 rounded-lg shadow-lg mb-6 border border-red-600 dark:border-red-600">
+      <div className="w-full bg-black dark:bg-gray-800 my-4 p-4 rounded-lg shadow-lg mb-6 border border-red-600 dark:border-gray-700">
         <h3 className="text-white font-bold">{t("kpi.pageTitle")}</h3>
       </div>
 
       {/* Filters and Actions */}
-      <Card className="border border-red-600 dark:border-red-600 shadow-sm dark:bg-black mb-6">
-        <CardBody className="p-6 dark:bg-black">
+      <Card className="border border-red-600 dark:border-gray-700 shadow-sm dark:bg-gray-800 mb-6">
+        <CardBody className="p-6 dark:bg-gray-800">
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 flex-1 w-full lg:w-auto">
               <Typography variant="small" className="text-blue-gray-600 dark:text-gray-300 font-medium whitespace-nowrap pt-2">
@@ -266,9 +266,9 @@ const KPIPage = () => {
       </Card>
 
       {/* Search Modal */}
-      <Dialog open={searchOpen} handler={setSearchOpen} size="md" className="dark:bg-black border border-red-600 dark:border-red-600">
+      <Dialog open={searchOpen} handler={setSearchOpen} size="md" className="dark:bg-gray-900 border border-red-600 dark:border-gray-700">
         <DialogHeader className="dark:text-white">{t("kpi.searchModal.title")}</DialogHeader>
-        <DialogBody divider className="space-y-4 dark:bg-black">
+        <DialogBody divider className="space-y-4 dark:bg-gray-800">
           <div>
             <Typography variant="small" color="blue-gray" className="mb-1 dark:text-gray-300">
               {t("kpi.searchModal.employeeName")}
@@ -339,7 +339,7 @@ const KPIPage = () => {
             </div>
           </div>
         </DialogBody>
-        <DialogFooter className="flex justify-between gap-2 dark:bg-black">
+        <DialogFooter className="flex justify-between gap-2 dark:bg-gray-800">
           <Button variant="text" color="blue-gray" onClick={handleSearchClear} className="dark:text-gray-300 dark:hover:bg-gray-700">
             {t("buttons.clear")}
           </Button>
@@ -355,8 +355,8 @@ const KPIPage = () => {
       </Dialog>
 
       {/* KPI Table */}
-      <Card className="border border-red-600 dark:border-red-600 shadow-sm dark:bg-black">
-        <CardBody className="p-0 dark:bg-black">
+      <Card className="border border-red-600 dark:border-gray-700 shadow-sm dark:bg-gray-800">
+        <CardBody className="p-0 dark:bg-gray-800">
           {loading ? (
             <div className="flex flex-col items-center justify-center py-10">
               <Spinner className="h-6 w-6" />
@@ -365,11 +365,11 @@ const KPIPage = () => {
               </Typography>
             </div>
           ) : (
-            <div className="overflow-x-auto">
+            <div>
               <table className="w-full table-auto min-w-[1600px]">
                 <thead>
-                  <tr className="bg-gray-50 dark:bg-black">
-                    <th className="border-b border-blue-gray-100 dark:border-gray-800 py-4 px-5 text-left sticky left-0 bg-gray-50 dark:bg-black z-10 min-w-[180px]">
+                  <tr className="bg-gray-50 dark:bg-gray-800">
+                    <th className="border-b border-blue-gray-100 dark:border-gray-800 py-4 px-5 text-left sticky left-0 bg-gray-50 dark:bg-gray-800 z-10 min-w-[180px]">
                       <Typography variant="small" className="text-[11px] font-semibold uppercase text-blue-gray-500 dark:text-gray-400">
                         {t("kpi.table.employeeInfo")}
                       </Typography>
@@ -427,8 +427,8 @@ const KPIPage = () => {
                       key={row.id} 
                       className={`${
                         index % 2 === 0 
-                          ? "bg-white dark:bg-black" 
-                          : "bg-gray-50 dark:bg-black/50"
+                          ? "bg-white dark:bg-gray-800"
+                          : "bg-gray-50 dark:bg-gray-800/50"
                       } hover:bg-blue-gray-50 dark:hover:bg-gray-800/70 transition-colors`}
                     >
                       <td className="py-4 px-5 border-b border-blue-gray-50 dark:border-gray-800 sticky left-0 bg-inherit z-10">
